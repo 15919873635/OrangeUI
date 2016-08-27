@@ -1,0 +1,157 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2016-7-14, 15:46:22
+    Author     : lining
+*/
+body {
+  margin: 0 auto;
+  padding: 0;
+}
+div,
+ul {
+  margin: 0;
+  padding: 0;
+}
+div {
+  box-sizing: border-box;
+}
+.datepicker-combo {
+  position: relative;
+  width: 150px;
+  height: 24px;
+  border-radius: 3px;
+  border: 1px #a9a9a9 solid;
+  -webkit-border-radius: 3px;
+  text-align: center;
+}
+.datepicker-combo-table {
+  display: table;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+.datepicker-combo-tr {
+  display: table-row;
+}
+.datepicker-combo-td {
+  display: table-cell;
+  padding: 0;
+  vertical-align: middle;
+}
+.datepicker-combo-icon {
+  display: block;
+  background: url('../icon/icon_calendar.png') center no-repeat;
+  width: 16px;
+  height: 16px;
+  margin: 0 0 0 5px;
+}
+.datepicker-combo-datecontent {
+  display: block;
+  text-align: left;
+  text-indent: 5px;
+  width: 100%;
+  height: inherit;
+  line-height: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: hidden;
+}
+.full-area {
+  width: 100%;
+  height: 100%;
+}
+.full-width {
+  width: 100%;
+}
+.full-height {
+  height: 100%;
+}
+.width-20px {
+  width: 20px;
+}
+.datepicker {
+  display: block;
+  position: absolute;
+  width: 192px;
+  height: 195px;
+  margin: 0 0 0 -1px;
+  border: 1px #a9a9a9 solid;
+}
+.datepicker-top {
+  display: inline-block;
+  width: 100%;
+  height: 25px;
+  background-color: #bebebe;
+}
+.datepicker-content {
+  display: block;
+  width: 100%;
+  height: 120px;
+}
+.datepicker-date,
+.datepicker-number {
+  display: inline-block;
+  text-align: center;
+  width: 27px;
+  height: 18px;
+  line-height: 18px;
+  float: left;
+  font-family: "Microsoft YaHei";
+  font-size: 12px;
+  color: #000000;
+}
+#lastMonth,
+#nextMonth,
+.datepicker-number {
+  cursor: pointer;
+}
+#lastMonth,
+#nextMonth,
+.datepicker-number,
+.datepicker-date,
+.datepicker-combo-datecontent,
+.datepicker-top {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.datepicker-number:hover {
+  background-color: #bebebe;
+}
+.notcurrentmonth {
+  color: #8b8b8b;
+}
+.currentmonth {
+  color: #000000;
+}
+.datepicker-bottom {
+  display: block;
+  width: 100%;
+  height: 25px;
+  margin: 10px 0 0 0;
+}
+.datepicker-bottom-button {
+  display: inline-block;
+  text-align: center;
+  height: 20px;
+  line-height: 20px;
+  width: 40px;
+  float: right;
+  border-radius: 3px;
+  border: 1px #a9a9a9 solid;
+  margin: 5px 10px 0 0;
+  font-size: 12px;
+  cursor: pointer;
+}
+.datepicker-bottom-button:hover,
+.datepicker-number-selected {
+  background-color: #8b8b8b;
+}
+.hidden-area {
+  display: none;
+}
+/*# sourceMappingURL=DatePicker.css.map */
