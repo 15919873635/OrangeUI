@@ -6,7 +6,7 @@
 ;(
     function(jQ){
         jQ.fn.extend({
-            IfProgressBar:function(options){
+            OrangeProgressBar:function(options){
                 var pagerBar = jQ(this),
                 pager_default_width = 300,
                 pager_default_height = 35,
@@ -24,7 +24,7 @@
                 defaultOptions = initOptions(options),
                 defaultMethods = initMethods(),
                 hasInited = jQ.type(pagerBar.data("hasInited")) === "undefined" ? false : pagerBar.data("hasInited");
-                if(jQ.IfFitTag(pagerBar.get(0).tagName)){
+                if(jQ.OrangeFitTag(pagerBar.get(0).tagName)){
                     if(jQ.isPlainObject(options) || jQ.type(options) === "undefined")
                         _initPager();
                     if(jQ.type(options) === "string"){
@@ -46,7 +46,7 @@
                 };   
                 function doInit(){
                     if(jQ.type(pagerBar.prop("id")) === "undefined"){
-                        pagerBar.prop("id","pager_"+jQ.IfRandomId());
+                        pagerBar.prop("id","pager_"+jQ.OrangeRandomId());
                     };
                     if(!pagerBar.hasClass("pager"))
                         pagerBar.addClass("pager");
@@ -68,10 +68,10 @@
                     var dataList = [];
                     if(jQ.isArray(defaultOptions.pageList)){
                         for(var index = 0 ; index < defaultOptions.pageList.length ; index ++){
-                            dataList.push({id:jQ.IfRandomId(),text:defaultOptions.pageList[index]});
+                            dataList.push({id:jQ.OrangeRandomId(),text:defaultOptions.pageList[index]});
                         }
                     }
-                    pagerBar.find(".combo").IfComboBox({width:40,height:21,datas:dataList});
+                    pagerBar.find(".combo").OrangeComboBox({width:40,height:21,datas:dataList});
                     pagerBar.find(".full_area").css({"line-height":pagerBar.height()+"px"});
                     pagerBar.find(".pager_currentnumber").text(defaultOptions.currentPage);
                     pagerBar.find(".pager_totalnumber").text(defaultOptions.totalPage);

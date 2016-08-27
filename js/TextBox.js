@@ -6,7 +6,7 @@
 ;(
     function(jQ){
         jQ.fn.extend({
-            IfTextBox:function(options){
+            OrangeTextBox:function(options){
                 var textBox = jQ(this),
                 text_default_width = 110,
                 text_default_height = 20,
@@ -14,7 +14,7 @@
                 defaultOptions = initOptions(options),
                 defaultMethods = initMethods(),
                 hasInited = jQ.type(textBox.data("hasInited")) === "undefined" ? false : textBox.data("hasInited");
-                if(jQ.IfFitTag(textBox.get(0).tagName)){
+                if(jQ.OrangeFitTag(textBox.get(0).tagName)){
                     if(jQ.isPlainObject(options) || jQ.type(options) === "undefined")
                         _initText();
                     if(jQ.type(options) === "string"){
@@ -36,7 +36,7 @@
                 };
                 function doInit(){
                     if(jQ.type(textBox.prop("id")) === "undefined"){
-                        textBox.prop("id","text_"+jQ.IfRandomId());
+                        textBox.prop("id","text_"+jQ.OrangeRandomId());
                     }
                     if(!textBox.hasClass("text"))
                         textBox.addClass("text");

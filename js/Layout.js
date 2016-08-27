@@ -6,7 +6,7 @@
 ;(
     function(jQ){
         jQ.fn.extend({
-            IfLayout:function(options){
+            OrangeLayout:function(options){
                 
             }
         });

@@ -6,12 +6,12 @@
 ;(
     function(jQ){
         jQ.fn.extend({
-            IfDatepicker:function(options){
+            OrangeDatepicker:function(options){
                 var datePicker = jQ(this),
                     datePicker_default_width = 150,
                     today = new Date(),
-                    datePicker_default_format = jQ.IfConstants.DateFormats.FORMAT1,
-                    datePicker_default_date = jQ.IfUtil.dateFormat(new Date(),datePicker_default_format),
+                    datePicker_default_format = jQ.OrangeConstants.DateFormats.FORMAT1,
+                    datePicker_default_date = jQ.OrangeUtil.dateFormat(new Date(),datePicker_default_format),
                     datePicker_current_year = jQ.type(datePicker.data("currentYear")) === "undefined" ? today.getFullYear() : datePicker.data("currentYear")  ,
                     datePicker_current_month = jQ.type(datePicker.data("currentMonth")) === "undefined" ? (today.getMonth() + 1) : datePicker.data("currentMonth"),
                     datePicker_current_date = jQ.type(datePicker.data("currentDate")) === "undefined" ? today.getDate() : datePicker.data("currentDate") ,
@@ -77,7 +77,7 @@
                             },
                             setDate:function(pickerDate){
                                 pickerDate = jQ.isPlainObject(pickerDate) ? pickerDate[1] : (jQ.type(pickerDate) === "string" ? pickerDate : datePicker_default_date);
-                                var newDate = jQ.IfUtil.dismantDate(pickerDate);
+                                var newDate = jQ.OrangeUtil.dismantDate(pickerDate);
                                 datePicker_current_year = newDate.year;
                                 datePicker_current_month = newDate.month;
                                 datePicker_current_date  = newDate.day;
@@ -113,14 +113,14 @@
                         targetDate.setFullYear(year);
                         targetDate.setMonth(month - 1);
                         targetDate.setDate(1);
-                        var currentMonthDays = jQ.IfUtil.getDaysInMonth(year,month - 1),
+                        var currentMonthDays = jQ.OrangeUtil.getDaysInMonth(year,month - 1),
                             dayInWeek = targetDate.getDay(),
                             lastMonthDays = 0,
                         dayInWeek = (dayInWeek === 0) ? 7 : dayInWeek;  
                         if(month === 1){
-                            lastMonthDays = jQ.IfUtil.getDaysInMonth(year - 1,11);
+                            lastMonthDays = jQ.OrangeUtil.getDaysInMonth(year - 1,11);
                         } else{
-                            lastMonthDays = jQ.IfUtil.getDaysInMonth(year,month - 2);
+                            lastMonthDays = jQ.OrangeUtil.getDaysInMonth(year,month - 2);
                         }
                         for(var startIndex = 0 ;startIndex < dayInWeek ; startIndex ++){
                             curtMonth[startIndex] = {val:(lastMonthDays + startIndex - dayInWeek) + 1,flag:"notcurrentmonth",month:"last"};
@@ -158,7 +158,7 @@
                         currentDate.setDate(parseInt($thisText));
                         datePicker_current_date = parseInt($thisText);
                         datePicker.data("currentDate",parseInt($thisText));
-                        datePicker.find(".datepicker-combo-datecontent").text(jQ.IfUtil.dateFormat(currentDate,datePicker_default_format));
+                        datePicker.find(".datepicker-combo-datecontent").text(jQ.OrangeUtil.dateFormat(currentDate,datePicker_default_format));
                     });
                     datePicker.find(".notcurrentmonth").click(function(){
                         var $this = jQ(this);
@@ -187,7 +187,7 @@
                     currentDate.setFullYear(year);
                     currentDate.setMonth(month - 1);
                     currentDate.setDate(day);
-                    datePicker.find(".datepicker-combo-datecontent").text(jQ.IfUtil.dateFormat(currentDate,datePicker_default_format));
+                    datePicker.find(".datepicker-combo-datecontent").text(jQ.OrangeUtil.dateFormat(currentDate,datePicker_default_format));
                     month = month > 9 ? month : "0"+month;
                     datePicker.find("#currentMonth").text(year+datePicker_font_year+month+datePicker_font_month);
                 }
@@ -202,7 +202,7 @@
                     datePicker.data("currentDate",datePicker_current_date);
                     var datePickerId = datePicker.prop("id");
                     if(jQ.type(datePickerId) === "undefined"){
-                        datePickerId = "datepicker_"+jQ.IfRandomId();
+                        datePickerId = "datepicker_"+jQ.OrangeRandomId();
                         datePicker.prop("id",datePickerId);
                     }
                     if(!datePicker.hasClass("datepicker-combo"))

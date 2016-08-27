@@ -6,7 +6,7 @@
 ;(
     function(jQ){
         jQ.fn.extend({
-            IfTree:function(options){
+            OrangeTree:function(options){
                 
             }
         });

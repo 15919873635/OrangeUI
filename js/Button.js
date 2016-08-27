@@ -6,7 +6,7 @@
 ;(
     function(jQ){
         jQ.fn.extend({
-            IfButton:function(options){
+            OrangeButton:function(options){
                 var button = jQ(this),
                     button_default_width = 80,
                     button_default_height = 20,

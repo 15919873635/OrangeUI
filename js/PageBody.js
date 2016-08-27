@@ -6,7 +6,7 @@
 ;(
     function(jQ){
         jQ.fn.extend({
-            IfPageBody:function(options){
+            OrangePageBody:function(options){
                 
             }
         });

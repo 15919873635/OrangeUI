@@ -6,7 +6,7 @@
 ;(
     function(jQ){
         jQ.fn.extend({
-            IfPictureShear:function(options){
+            OrangePictureShear:function(options){
                 
             }
         });

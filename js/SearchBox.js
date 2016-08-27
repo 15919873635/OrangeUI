@@ -6,7 +6,7 @@
 ;(
     function(jQ){
         jQ.fn.extend({
-            IfSearchBox:function(options){
+            OrangeSearchBox:function(options){
                 
             }
         });

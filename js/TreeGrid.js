@@ -6,7 +6,7 @@
 ;(
     function(jQ){
         jQ.fn.extend({
-            IfTreeGrid:function(options){
+            OrangeTreeGrid:function(options){
                 
             }
         });

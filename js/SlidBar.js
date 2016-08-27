@@ -6,13 +6,13 @@
 ;(
     function(jQ){
         jQ.fn.extend({
-            IfSlidBar:function(options){
+            OrangeSlidBar:function(options){
                 var sildBar = jQ(this),
                     sild_default_width = 150,
                     defaultOptions = initOptions(options),
                     defaultMethods = initMethods(),
                     hasInited = jQ.type(sildBar.data("hasInited")) === "undefined" ? false : sildBar.data("hasInited");
-                if(jQ.IfFitTag(sildBar.get(0).tagName)){
+                if(jQ.OrangeFitTag(sildBar.get(0).tagName)){
                     if(jQ.isPlainObject(options) || jQ.type(options) === "undefined")
                         _initSlidBar();
                     if(jQ.type(options) === "string"){
@@ -34,7 +34,7 @@
                 };   
                 function doInit(){
                     if(jQ.type(sildBar.prop("id")) === "undefined"){
-                        sildBar.prop("id","slid_"+jQ.IfRandomId());
+                        sildBar.prop("id","slid_"+jQ.OrangeRandomId());
                     };
                     if(!sildBar.hasClass("button"))
                         sildBar.addClass("button");

@@ -6,7 +6,7 @@
 ;(
     function(jQ){
         jQ.fn.extend({
-            IfTabFolder:function(options){
+            OrangeTabFolder:function(options){
                 var tabFolder = jQ(this),
                     tabfolder_default_width = 600,
                     tabfolder_default_height = 400,
@@ -16,7 +16,7 @@
                     defaultOptions = initOptions(options),
                     defaultMethods = initMethods(),
                     hasInited = jQ.type(tabFolder.data("hasInited")) === "undefined" ? false : tabFolder.data("hasInited");
-                if(jQ.IfFitTag(tabFolder.get(0).tagName)){
+                if(jQ.OrangeFitTag(tabFolder.get(0).tagName)){
                     if(jQ.isPlainObject(options) || jQ.type(options) === "undefined")
                         _initTabFolder();
                     if(jQ.type(options) === "string"){
@@ -38,7 +38,7 @@
                 };  
                 function doInit(){
                     if(jQ.type(tabFolder.prop("id")) === "undefined"){
-                        tabFolder.prop("id","tabfolder_"+jQ.IfRandomId());
+                        tabFolder.prop("id","tabfolder_"+jQ.OrangeRandomId());
                     };
                     if(!tabFolder.hasClass("tabfolder"))
                         tabFolder.addClass("tabfolder");
@@ -128,11 +128,11 @@
                             addTab:function(tabOptions){
                                 if(jQ.isPlainObject(tabOptions)){
                                     tabOptions = jQ.isPlainObject(tabOptions[1]) ? tabOptions[1] : tabOptions;
-                                    var tabId = jQ.type(tabOptions.id) === "string" ? tabOptions.id + jQ.IfRandomId() + "_title": "tab_"+jQ.IfRandomId()+"_title",
+                                    var tabId = jQ.type(tabOptions.id) === "string" ? tabOptions.id + jQ.OrangeRandomId() + "_title": "tab_"+jQ.OrangeRandomId()+"_title",
                                         tabTitle = jQ.type(tabOptions.title) === "string" ? tabOptions.title : tab_default_title,
                                         tabPanelId = tabId.substring(tabId.length - 12,tabId.length) + "_panel",
                                         tabPanelContent = jQ.type(tabOptions.content) === "string" ? tabOptions.content : "";
-                                    if(jQ.IfRegExp("url",tabPanelContent)){
+                                    if(jQ.OrangeRegExp("url",tabPanelContent)){
                                         tabPanelContent = "<iframe class='tab_iframe' src='"+tabPanelContent+"'></iframe>";
                                     }
                                     tabFolder.find(".tabfolder_top_td").append("<div class='tab_normal hide_text' id='"+tabId+"'>"+tabTitle+"</div>");

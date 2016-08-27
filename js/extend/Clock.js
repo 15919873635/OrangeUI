@@ -6,7 +6,7 @@
 ;(
     function(jQ){
         jQ.fn.extend({
-            IfClock:function(options){
+            OrangeClock:function(options){
                 
             }
         });

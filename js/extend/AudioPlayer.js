@@ -6,7 +6,7 @@
 ;(
     function(jQ){
         jQ.fn.extend({
-            IfAudioPlayer:function(options){
+            OrangeAudioPlayer:function(options){
                 
             }
         });

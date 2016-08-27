@@ -6,14 +6,14 @@
 ;(
     function(jQ){
         jQ.fn.extend({
-            IfComboBox:function(options){
+            OrangeComboBox:function(options){
                 var combo = jQ(this),
                 combo_default_width = 110,
                 combo_default_height = 25,
                 defaultOptions = initOptions(options),
                 defaultMethods = initMethods(),
                 hasInited = jQ.type(combo.data("hasInited")) === "undefined" ? false : combo.data("hasInited");
-                if(jQ.IfFitTag(combo.get(0).tagName)){
+                if(jQ.OrangeFitTag(combo.get(0).tagName)){
                     if(jQ.isPlainObject(options) || jQ.type(options) === "undefined")
                         _initCombo();
                     if(jQ.type(options) === "string"){
@@ -35,7 +35,7 @@
                 }
                 function doInit(){
                     if(jQ.type(combo.prop("id")) === "undefined"){
-                        combo.prop("id","combo_"+jQ.IfRandomId());
+                        combo.prop("id","combo_"+jQ.OrangeRandomId());
                     };
                     if(!combo.hasClass("combo"))
                         combo.addClass("combo");
@@ -111,7 +111,7 @@
                                     opts.success = function(data){
                                         defaultMethods.setDatas(data);
                                     };
-                                    jQ.IfAjax({
+                                    jQ.OrangeAjax({
                                         url:opts.url,
                                         dataType:opts.dataType,
                                         data:opts.data,
@@ -129,7 +129,7 @@
                                     for(var index = 0; index < comboDats.length ; index ++){
                                         var comData = comboDats[index];
                                         if(jQ.isPlainObject(comData)){
-                                            var comDataId = jQ.type(comData.id) === "undefined" ? "li_"+jQ.IfRandomId() : comData.id ;
+                                            var comDataId = jQ.type(comData.id) === "undefined" ? "li_"+jQ.OrangeRandomId() : comData.id ;
                                             var comDataText = jQ.type(comData.text) === "undefined" ? "" : comData.text ;
                                             combo.find("ul").append("<li id='"+comDataId+"'>"+comDataText+"</li>");
                                             plainData += 1;

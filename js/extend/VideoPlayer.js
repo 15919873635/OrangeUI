@@ -6,7 +6,7 @@
 ;(
     function(jQ){
         jQ.fn.extend({
-            IfVideoPlayer:function(options){
+            OrangeVideoPlayer:function(options){
                 
             }
         });

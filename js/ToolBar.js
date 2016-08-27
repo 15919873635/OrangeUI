@@ -6,7 +6,7 @@
 ;(
     function(jQ){
         jQ.fn.extend({
-            IfToolBar:function(options){
+            OrangeToolBar:function(options){
                 
             }
         });

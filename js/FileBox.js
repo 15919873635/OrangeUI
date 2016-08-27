@@ -6,7 +6,7 @@
 ;(
     function(jQ){
         jQ.fn.extend({
-            IfFileBox:function(options){
+            OrangeFileBox:function(options){
                 var fileBox = jQ(this),
                     file_default_width = 150,
                     file_default_height = 25,
@@ -14,7 +14,7 @@
                     defaultOptions = initOptions(options),
                     defaultMethods = initMethods(),
                     hasInited = jQ.type(fileBox.data("hasInited")) === "undefined" ? false : fileBox.data("hasInited");
-                if(jQ.IfFitTag(fileBox.get(0).tagName)){
+                if(jQ.OrangeFitTag(fileBox.get(0).tagName)){
                     if(jQ.isPlainObject(options) || jQ.type(options) === "undefined")
                         _initFile();
                     if(jQ.type(options) === "string"){
@@ -36,7 +36,7 @@
                 };  
                 function doInit(){
                     if(jQ.type(fileBox.prop("id")) === "undefined"){
-                        fileBox.prop("id","file_"+jQ.IfRandomId());
+                        fileBox.prop("id","file_"+jQ.OrangeRandomId());
                     };
                     if(!fileBox.hasClass("file"))
                         fileBox.addClass("file");

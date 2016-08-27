@@ -6,7 +6,7 @@
 ;(
     function(jQ){
         jQ.fn.extend({
-            IfWindow:function(options){
+            OrangeWindow:function(options){
                 var window = jQ(this),
                     docWidth = jQ(document).width(),
                     docHeight = jQ(document).height(),
@@ -27,7 +27,7 @@
                     defaultOptions = initOptions(options),
                     defaultMethods = initMethods(),
                     hasInited = jQ.type(window.data("hasInited")) === "undefined" ? false : window.data("hasInited");
-                if(jQ.IfFitTag(window.get(0).tagName)){
+                if(jQ.OrangeFitTag(window.get(0).tagName)){
                     if(jQ.isPlainObject(options) || jQ.type(options) === "undefined")
                         _initWin();
                     if(jQ.type(options) === "string"){
@@ -49,7 +49,7 @@
                 };
                 function doInit(){
                     if(jQ.type(winId) === "undefined"){
-                        winId = "win_"+jQ.IfRandomId();
+                        winId = "win_"+jQ.OrangeRandomId();
                         window.prop("id",winId);
                     }
                     if(!window.hasClass("window"))
@@ -82,7 +82,7 @@
                         jQ(this).off("mousemove","**");
                     }).on("mousemove",function(event){
                         if(isMoving){
-                            jQ("#"+winId).IfWindow("setPosition",[event.pageX - mousePosition[0],event.pageY - mousePosition[1]]);
+                            jQ("#"+winId).OrangeWindow("setPosition",[event.pageX - mousePosition[0],event.pageY - mousePosition[1]]);
                         }
                     }).on("mouseout",function(event){
                         event.preventDefault();
@@ -101,22 +101,22 @@
                     if(btsType){
                         switch (buttonType){
                             case 0:
-                                var butt_ok = "butt_"+jQ.IfRandomId();
-                                var butt_cancel = "butt_"+jQ.IfRandomId();
+                                var butt_ok = "butt_"+jQ.OrangeRandomId();
+                                var butt_cancel = "butt_"+jQ.OrangeRandomId();
                                 window.find(".bottom").children("div").append("<div id='"+butt_cancel+"'></div><div id='"+butt_ok+"'></div>");
-                                jQ("#"+butt_ok).IfButton({
+                                jQ("#"+butt_ok).OrangeButton({
                                     align:"right",
                                     width:win_default_but_width,
                                     icon:"icon_file",
                                     text:button_ok_text
                                 });
-                                jQ("#"+butt_cancel).IfButton({
+                                jQ("#"+butt_cancel).OrangeButton({
                                     align:"right",
                                     width:win_default_but_width,
                                     icon:"icon_pc",
                                     text:button_cancel_text,
                                     callback:function(){
-                                        jQ("#"+winId).IfWindow("hide");
+                                        jQ("#"+winId).OrangeWindow("hide");
                                     }
                                 });
                                 break;

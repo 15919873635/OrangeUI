@@ -6,7 +6,7 @@
 ;(
     function(jQ){
         jQ.fn.extend({
-            IfProgressbar:function(options){
+            OrangeProgressbar:function(options){
                 var progressBar = jQ(this),
                     progress_default_width = 150,
                     progress_default_height = 25,
@@ -14,7 +14,7 @@
                     defaultOptions = initOptions(options),
                     defaultMethods = initMethods(),
                     hasInited = jQ.type(progressBar.data("hasInited")) === "undefined" ? false : progressBar.data("hasInited");
-                if(jQ.IfFitTag(progressBar.get(0).tagName)){
+                if(jQ.OrangeFitTag(progressBar.get(0).tagName)){
                     if(jQ.isPlainObject(options) || jQ.type(options) === "undefined")
                         _initProgress();
                     if(jQ.type(options) === "string"){
@@ -36,13 +36,13 @@
                 };   
                 function doInit(){
                     if(jQ.type(progressBar.prop("id")) === "undefined"){
-                        progressBar.prop("id","progress_"+jQ.IfRandomId());
+                        progressBar.prop("id","progress_"+jQ.OrangeRandomId());
                     };
                     if(!progressBar.hasClass("progress"))
                         progressBar.addClass("progress");
                     var proWidth = jQ.isNumeric(defaultOptions.width) ? defaultOptions.width : progress_default_width,
                         proHeight = jQ.isNumeric(defaultOptions.height) ? defaultOptions.height : progress_default_height,
-                        proPrcentage = jQ.IfPercentage(defaultOptions.percentage) ? defaultOptions.percentage : progress_default_prcentage;
+                        proPrcentage = jQ.OrangePercentage(defaultOptions.percentage) ? defaultOptions.percentage : progress_default_prcentage;
                     proHeight = proHeight > 30 ? 30 : (proHeight < 5 ?  5 : proHeight);
                     progressBar.empty().append("<div class='progress_content'></div>").css({"width":proWidth+"px","height":proHeight+"px"});
                     initPercentage(proPrcentage);
@@ -51,7 +51,7 @@
                 };
                 function initPercentage(progressValue){
                     progressValue = jQ.isPlainObject(progressValue) ? progressValue[1] : progressValue;
-                    progressValue = jQ.IfPercentage(progressValue) ? progressValue : progress_default_prcentage;
+                    progressValue = jQ.OrangePercentage(progressValue) ? progressValue : progress_default_prcentage;
                     if(defaultOptions.animate)
                         progressBar.find(".progress_content").text(progressValue).css({"line-height":progressBar.height()+"px"}).animate({width:progressValue},700);
                     else
