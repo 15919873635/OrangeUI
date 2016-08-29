@@ -132,7 +132,7 @@
                             width:win_default_width,
                             height:win_default_height,
                             offset:[],
-                            title:{}
+                            title:win_default_title
                         };
                     }
                     if(jQ.isPlainObject(ops))
