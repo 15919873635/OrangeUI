@@ -17,7 +17,7 @@
                     defaultOptions = initOptions(options),
                     defaultMethods = initMethods(),
                     hasInited = jQ.type(button.data("hasInited")) === "undefined" ? false : button.data("hasInited");
-                if(jQ.IfFitTag(button.get(0).tagName)){
+                if(jQ.OrangeFitTag(button.get(0).tagName)){
                     if(jQ.isPlainObject(options) || jQ.type(options) === "undefined")
                         _initButton();
                     if(jQ.type(options) === "string"){
