@@ -7,6 +7,15 @@ and open the template in the editor.
     Created on : 2016-7-23, 10:56:52
     Author     : Administrator
 */
+@bg-color:rgb(169,169,169);
+@bg-color2:rgba(190,190,190,1);
+@font-color:rgb(139,139,139);
+@font-family-yahei:"Microsoft YaHei";
+@font-family-songti:"SimSun";
+@font-size-12:12px;
+@font-size-14:14px;
+@font-size-16:16px;
+@font-size-18:18px;
 body{
     margin: 0 auto;
     padding: 0
@@ -14,8 +23,8 @@ body{
 div,ul,ol,span{
     margin: 0;
     padding: 0;
-    font-family: "宋体";
-    font-size: 12px;
+    font-family: @font-family-songti;
+    font-size: @font-size-12;
     box-sizing: border-box;
 }
 .table{
@@ -37,7 +46,7 @@ div,ul,ol,span{
     float: left;
     height: 30px;
     width: 100%;
-    background-color: rgb(169,169,169);
+    background-color: @bg-color;
 }
 .vertical_middle{
     vertical-align: middle;
@@ -62,7 +71,7 @@ div,ul,ol,span{
     text-align: center;
 }
 .window, .button, .grid, .progress, .file, .pager{
-    border: 1px rgb(169,169,169) solid;
+    border: 1px @bg-color solid;
     border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
@@ -77,7 +86,7 @@ div,ul,ol,span{
     text-align: center;
     float: left;
     color: rgb(255,255,255);
-    background-color: rgb(169,169,169)
+    background-color: @bg-color
 }
 .window{
     position: absolute;
@@ -113,7 +122,7 @@ div,ul,ol,span{
     line-height: 25px;
 }
 .grid_center .tbody .table .tr:hover{
-    background-color: rgb(169,169,169);
+    background-color: @bg-color;
     cursor: pointer;
 }
 .grid_center .tbody .table .tr .td{
@@ -142,7 +151,7 @@ div,ul,ol,span{
     top: 0px;
     height: 30px;
     line-height: 30px;
-    border-bottom: 1px rgb(169,169,169) solid;
+    border-bottom: 1px @bg-color solid;
 }
 .text_indent{
    text-indent: 5px; 
@@ -151,7 +160,7 @@ div,ul,ol,span{
     display: none;
 }
 .bottom{
-    border-top: 1px rgb(169,169,169) solid;
+    border-top: 1px @bg-color solid;
     width: 100%;
     height: 30px;
 }
@@ -171,10 +180,10 @@ div,ul,ol,span{
     height: 20px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
-    border: 1px rgb(169,169,169) solid;
+    border: 1px @bg-color solid;
 }
 .combo{
-    border: 1px rgb(169,169,169) solid;
+    border: 1px @bg-color solid;
     border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
@@ -184,9 +193,9 @@ div,ul,ol,span{
 .combo ul{
     width: 100%;
     height: auto;
-    border-left: 1px rgb(169,169,169) solid;
-    border-right: 1px rgb(169,169,169) solid;
-    border-bottom: 1px rgb(169,169,169) solid;
+    border-left: 1px @bg-color solid;
+    border-right: 1px @bg-color solid;
+    border-bottom: 1px @bg-color solid;
     margin-top: -1px;
     background-color: rgba(255,255,255,1);
 }
@@ -217,7 +226,7 @@ div,ul,ol,span{
     left: 4px;
     margin-top: 7px;
     border: 5px solid transparent;
-    border-top: 5px solid rgb(169,169,169);
+    border-top: 5px solid @bg-color;
     width: 0;
     height: 0px;
     position: relative;
@@ -227,10 +236,10 @@ div,ul,ol,span{
 }
 .file_button{
     width: 70px;
-    border-right: 1px rgb(169,169,169) solid;
+    border-right: 1px @bg-color solid;
 }
 .file_noborder{
-    border: 1px rgb(169,169,169) solid;
+    border: 1px @bg-color solid;
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -300,12 +309,12 @@ div,ul,ol,span{
     display: inline-block;
     text-align: center;
     vertical-align: middle;
-    border: 1px rgb(169,169,169) solid;
+    border: 1px @bg-color solid;
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     color: rgb(255,255,255);
-    background-color: rgb(169,169,169);
+    background-color: @bg-color;
     cursor: pointer;
 }
 .pager_first,.pager_pre{
@@ -364,13 +373,13 @@ div,ul,ol,span{
     height: 100%;
 }
 .tabfolder{
-    border: 1px rgb(169,169,169) solid;
+    border: 1px @bg-color solid;
     width:600px;
     height:400px;
 }
 .tabfolder_top_tr{
     background-color: rgb(230,230,230);
-    border-bottom: 1px rgb(169,169,169) solid;
+    border-bottom: 1px @bg-color solid;
 }
 .tabfolder_top_td{
     vertical-align: bottom
@@ -386,7 +395,7 @@ div,ul,ol,span{
     float: left;
     font-family: "宋体";
     font-size: 14px;
-    border: 1px rgb(169,169,169) solid;
+    border: 1px @bg-color solid;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
     -webkit-border-top-left-radius: 3px;
@@ -408,5 +417,128 @@ div,ul,ol,span{
     height: 100%;
     overflow: auto;
     border: none;
+}
+.datepicker_combo{
+    position: relative;
+    width: 150px;
+    height: 24px;
+    border-radius: 3px;
+    border: 1px @bg-color solid;
+    -webkit-border-radius: 3px;
+    text-align: center;
+}
+.datepicker_combo_table{
+    display: table;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+.datepicker_combo_tr{
+    display: table-row;
+}
+.datepicker_combo_td{
+    display: table-cell;
+    padding: 0;
+    vertical-align: middle;
+}
+.datepicker_combo_icon{
+    display: block;
+    background: url('../icon/icon_calendar.png') center no-repeat;
+    width: 16px;
+    height: 16px;
+    margin: 0 0 0 5px;
+}
+.datepicker_combo_datecontent{
+    display: block;
+    text-align: left; 
+    text-indent: 5px; 
+    font-size: @font-size-18;
+    width: 100%;
+    height: inherit;
+    line-height: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:hidden;
+}
+.width_20px{
+    width: 20px;
+}
+.datepicker{
+    display: block;
+    position: absolute;
+    width: 192px;
+    height: 195px;
+    margin: 0 0 0 -1px;
+    border: 1px @bg-color solid;
+}
+.datepicker_top{
+    display: inline-block;
+    width: 100%;
+    height: 25px;
+    background-color: @bg-color2;
+}
+.datepicker_content{
+    display: block;
+    width: 100%;
+    height: 120px;
+}
+.datepicker_date,.datepicker_number{
+    display: inline-block;
+    text-align: center;
+    width: 27px;
+    height: 18px;
+    line-height: 18px;
+    float: left;
+    font-family: @font-family-yahei;
+    font-size: 12px;
+    color: rgba(0,0,0,1);
+}
+.lastMonth,.nextMonth{
+    font-size: @font-size-18;
+}
+.lastMonth,.nextMonth,.datepicker_number{
+    cursor: pointer;
+}
+.lastMonth,.nextMonth,.datepicker_number,.datepicker_date,.datepicker_combo_datecontent,.datepicker_top{
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+.datepicker_number:hover{
+    background-color: @bg-color2;
+}
+.notcurrentmonth{
+    color: @font-color;
+}
+.currentmonth{
+    color:rgb(0,0,0);
+}
+.fontSize_18{
+    font-size:@font-size-18;
+}
+.datepicker_bottom{
+    display: block;
+    width: 100%;
+    height: 25px;
+    margin: 10px 0 0 0;
+}
+.datepicker_bottom_button{
+    display: inline-block; 
+    text-align: center; 
+    height: 20px;
+    line-height: 20px; 
+    width: 40px;
+    float: right;
+    border-radius: 3px;
+    border: 1px rgb(169,169,169) solid;
+    margin:5px 10px 0 0; 
+    font-size: 12px;
+    cursor: pointer;
+}
+.datepicker_bottom_button:hover,.datepicker_number_selected{
+    background-color: @font-color;
+}
+.hidden_area{
+    display: none;
 }
 

@@ -138,27 +138,27 @@
                 function initDateNumbers(year,month,day){
                     var contentStr = "",
                         currentPageDays =  monthDayArray(year,month);
-                    datePicker.find(".datepicker-number").remove();
+                    datePicker.find(".datepicker_number").remove();
                     for(var index = 0 ; index < currentPageDays.length ; index ++){
                         var $thisData = currentPageDays[index];
                         if($thisData.flag === "currentmonth" && $thisData.val === parseInt(day))
-                            contentStr += "<div class='datepicker-number currentmonth datepicker-number-selected' data-month='"+$thisData.month+"'>"+$thisData.val+"</div>";
+                            contentStr += "<div class='datepicker_number currentmonth datepicker_number_selected' data-month='"+$thisData.month+"'>"+$thisData.val+"</div>";
                         else
-                            contentStr += "<div class='datepicker-number "+$thisData.flag+"' data-month='"+$thisData.month+"'>"+$thisData.val+"</div>";
+                            contentStr += "<div class='datepicker_number "+$thisData.flag+"' data-month='"+$thisData.month+"'>"+$thisData.val+"</div>";
                     }
-                    datePicker.find(".datepicker-content").append(contentStr);
+                    datePicker.find(".datepicker_content").append(contentStr);
                     datePicker.find(".currentmonth").click(function(){
                         var $this = jQ(this),
                             $thisText = $this.text();
-                        $this.siblings().removeClass("datepicker-number-selected");
-                        $this.addClass("datepicker-number-selected");
+                        $this.siblings().removeClass("datepicker_number_selected");
+                        $this.addClass("datepicker_number_selected");
                         var currentDate = new Date();
                         currentDate.setFullYear(datePicker_current_year);
                         currentDate.setMonth(datePicker_current_month - 1);
                         currentDate.setDate(parseInt($thisText));
                         datePicker_current_date = parseInt($thisText);
                         datePicker.data("currentDate",parseInt($thisText));
-                        datePicker.find(".datepicker-combo-datecontent").text(jQ.OrangeUtil.dateFormat(currentDate,datePicker_default_format));
+                        datePicker.find(".datepicker_combo_datecontent").text(jQ.OrangeUtil.dateFormat(currentDate,datePicker_default_format));
                     });
                     datePicker.find(".notcurrentmonth").click(function(){
                         var $this = jQ(this);
@@ -187,7 +187,7 @@
                     currentDate.setFullYear(year);
                     currentDate.setMonth(month - 1);
                     currentDate.setDate(day);
-                    datePicker.find(".datepicker-combo-datecontent").text(jQ.OrangeUtil.dateFormat(currentDate,datePicker_default_format));
+                    datePicker.find(".datepicker_combo_datecontent").text(jQ.OrangeUtil.dateFormat(currentDate,datePicker_default_format));
                     month = month > 9 ? month : "0"+month;
                     datePicker.find("#currentMonth").text(year+datePicker_font_year+month+datePicker_font_month);
                 }
@@ -205,27 +205,27 @@
                         datePickerId = "datepicker_"+jQ.OrangeRandomId();
                         datePicker.prop("id",datePickerId);
                     }
-                    if(!datePicker.hasClass("datepicker-combo"))
-                        datePicker.addClass("datepicker-combo");
+                    if(!datePicker.hasClass("datepicker_combo"))
+                        datePicker.addClass("datepicker_combo");
                     var datePickerStr = 
-                    "<div class='datepicker-combo-table full-area'><div class='datepicker-combo-tr'><div class='datepicker-combo-td width-20px'><div class='datepicker-combo-icon'></div></div><div class='datepicker-combo-td full-width'><div class='datepicker-combo-datecontent'></div></div></div></div>"+
-                    "<div class='datepicker hidden-area'><div class='datepicker-top'><div class='datepicker-combo-table full-area'><div class='datepicker-combo-tr'><div class='datepicker-combo-td width-20px' id='lastMonth'>&Lt;</div><div class='datepicker-combo-td full-width' id='currentMonth'></div><div class='datepicker-combo-td width-20px' id='nextMonth'>&Gt;</div></div></div></div>"+
-                    "<div class='datepicker-content'><div class='datepicker-date'>"+datePicker_font_day+"</div><div class='datepicker-date'>"+datePicker_font_one+"</div><div class='datepicker-date'>"+datePicker_font_two+"</div><div class='datepicker-date'>"+datePicker_font_three+"</div><div class='datepicker-date'>"+datePicker_font_four+"</div><div class='datepicker-date'>"+datePicker_font_five+
-                    "</div><div class='datepicker-date'>"+datePicker_font_six+"</div></div><div class='datepicker-bottom'><div class='datepicker-bottom-button'>取消</div><div class='datepicker-bottom-button'>确定</div></div></div>";
+                    "<div class='datepicker_combo_table full_area'><div class='datepicker_combo_tr'><div class='datepicker_combo_td width_20px'><div class='datepicker_combo_icon'></div></div><div class='datepicker_combo_td full_width'><div class='datepicker_combo_datecontent'></div></div></div></div>"+
+                    "<div class='datepicker hidden_area'><div class='datepicker_top'><div class='datepicker_combo_table full_area'><div class='datepicker_combo_tr'><div class='datepicker_combo_td width_20px lastMonth'>&Lt;</div><div class='datepicker_combo_td full_width fontSize_18' id='currentMonth'></div><div class='datepicker_combo_td width_20px nextMonth'>&Gt;</div></div></div></div>"+
+                    "<div class='datepicker_content'><div class='datepicker_date'>"+datePicker_font_day+"</div><div class='datepicker_date'>"+datePicker_font_one+"</div><div class='datepicker_date'>"+datePicker_font_two+"</div><div class='datepicker_date'>"+datePicker_font_three+"</div><div class='datepicker_date'>"+datePicker_font_four+"</div><div class='datepicker_date'>"+datePicker_font_five+
+                    "</div><div class='datepicker_date'>"+datePicker_font_six+"</div></div><div class='datepicker_bottom'><div class='datepicker_bottom_button'>取消</div><div class='datepicker_bottom_button'>确定</div></div></div>";
                     datePicker.append(datePickerStr);
                     defaultMethods.setWidth(defaultOptions.width);
                     initDateNumbers(datePicker_current_year,datePicker_current_month,datePicker_current_date);
                     
-                    datePicker.on("click",".datepicker-combo-table",function(){
-                        $(".datepicker").removeClass("hidden-area");
-                    }).on("click",".datepicker-bottom-button:eq(0)",function(){
-                        $(".datepicker").addClass("hidden-area");
-                        datePicker.find(".datepicker-combo-datecontent").text(datePicker_default_date);
+                    datePicker.on("click",".datepicker_combo_table",function(){
+                        $(".datepicker").removeClass("hidden_area");
+                    }).on("click",".datepicker_bottom_button:eq(0)",function(){
+                        $(".datepicker").addClass("hidden_area");
+                        datePicker.find(".datepicker_combo_datecontent").text(datePicker_default_date);
                         defaultMethods.setDate(datePicker_default_date);
-                    }).on("click",".datepicker-bottom-button:eq(1)",function(){
-                        $(".datepicker").addClass("hidden-area");
-                        datePicker_default_date = datePicker.find(".datepicker-combo-datecontent").text();
-                    }).on("click","#lastMonth",function(){
+                    }).on("click",".datepicker_bottom_button:eq(1)",function(){
+                        $(".datepicker").addClass("hidden_area");
+                        datePicker_default_date = datePicker.find(".datepicker_combo_datecontent").text();
+                    }).on("click",".lastMonth",function(){
                         if(datePicker_current_month === 1){
                             datePicker_current_month = 12;
                             datePicker_current_year = datePicker_current_year - 1;
@@ -236,7 +236,7 @@
                         datePicker.data("currentYear",datePicker_current_year);
                         datePicker.data("currentMonth",datePicker_current_month);
                         datePicker.data("currentDate",datePicker_current_date);
-                    }).on("click", "#nextMonth",function(){
+                    }).on("click", ".nextMonth",function(){
                         if(datePicker_current_month === 12){
                             datePicker_current_month = 1;
                             datePicker_current_year = datePicker_current_year + 1;
