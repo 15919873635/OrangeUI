@@ -13,8 +13,9 @@
                     win_default_width = 600,
                     win_default_height = 300,
                     win_default_but_width = 80,
+                    win_default_icon = "icon_window",
                     win_default_title = {
-                        icon:"icon_window",
+                        icon:win_default_icon,
                         text:"新建窗口"
                     },
                     button_ok_text = "确定",
@@ -23,7 +24,6 @@
                     isMoving = window.data("isMoving"),
                     winPosition = window.data("currentPosition"),
                     mousePosition = window.data("mousePosition"),
-                    win_default_icon = "icon_window",
                     defaultOptions = initOptions(options),
                     defaultMethods = initMethods(),
                     hasInited = jQ.type(window.data("hasInited")) === "undefined" ? false : window.data("hasInited");
