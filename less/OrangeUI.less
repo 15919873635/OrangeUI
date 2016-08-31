@@ -16,6 +16,7 @@ and open the template in the editor.
 @font-size-14:14px;
 @font-size-16:16px;
 @font-size-18:18px;
+@full-percent:100%;
 body{
     margin: 0 auto;
     padding: 0
@@ -29,8 +30,8 @@ div,ul,ol,span{
 }
 .table{
     display: table;
-    width: 100%;
-    height: 100%;
+    width: @full-percent;
+    height: @full-percent;
     border-collapse: collapse;
 }
 .fixed_layout{
@@ -45,23 +46,23 @@ div,ul,ol,span{
 .thead{
     float: left;
     height: 30px;
-    width: 100%;
+    width: @full-percent;
     background-color: @bg-color;
 }
 .vertical_middle{
     vertical-align: middle;
 }
 .full_width,.grid_center{
-    width: 100%;
+    width: @full-percent;
 }
 .full_height{
-    height: 100%;
+    height: @full-percent;
 }
 .full_area{
     display: block;
-    width: 100%;
-    height: 100%;
-    line-height: 100%;
+    width: @full-percent;
+    height: @full-percent;
+    line-height: @full-percent;
     overflow: auto;
 }
 .text_left{
@@ -113,8 +114,8 @@ div,ul,ol,span{
     overflow: hidden;
 }
 .tbody{
-    width: 100%;
-    height: 100%;
+    width: @full-percent;
+    height: @full-percent;
     overflow-y: auto;
 }
 .grid_center .tbody .table .tr{
@@ -161,13 +162,13 @@ div,ul,ol,span{
 }
 .bottom{
     border-top: 1px @bg-color solid;
-    width: 100%;
+    width: @full-percent;
     height: 30px;
 }
 .mongolia_layer{
     display: block;
-    width: 100%;
-    height: 100%;
+    width: @full-percent;
+    height: @full-percent;
     z-index: 10000;
     position: absolute;
     top:0px;
@@ -191,7 +192,7 @@ div,ul,ol,span{
     height: 25px;
 }
 .combo ul{
-    width: 100%;
+    width: @full-percent;
     height: auto;
     border-left: 1px @bg-color solid;
     border-right: 1px @bg-color solid;
@@ -203,6 +204,7 @@ div,ul,ol,span{
     list-style-type: none;
     white-space: nowrap;
     text-overflow: ellipsis;
+    text-indent: 5px;
     overflow: hidden;
     width: inherit;
     height: 20px;
@@ -362,7 +364,7 @@ div,ul,ol,span{
     height: inherit;
 }
 .pager_right{
-    height: 100%;
+    height: @full-percent;
     float: left;
 }
 .pager_currentnumber,.pager_totalnumber{
@@ -370,7 +372,7 @@ div,ul,ol,span{
     float: left;
     width: 20px;
     text-align: center;
-    height: 100%;
+    height: @full-percent;
 }
 .tabfolder{
     border: 1px @bg-color solid;
@@ -413,8 +415,8 @@ div,ul,ol,span{
 .tab_iframe{
     margin: 0;
     padding: 0;
-    width: 100%;
-    height: 100%;
+    width: @full-percent;
+    height: @full-percent;
     overflow: auto;
     border: none;
 }
@@ -452,9 +454,9 @@ div,ul,ol,span{
     text-align: left; 
     text-indent: 5px; 
     font-size: @font-size-18;
-    width: 100%;
+    width: @full-percent;
     height: inherit;
-    line-height: 100%;
+    line-height: @full-percent;
     overflow: hidden;
     white-space: nowrap;
     text-overflow:hidden;
@@ -472,13 +474,13 @@ div,ul,ol,span{
 }
 .datepicker_top{
     display: inline-block;
-    width: 100%;
+    width: @full-percent;
     height: 25px;
     background-color: @bg-color2;
 }
 .datepicker_content{
     display: block;
-    width: 100%;
+    width: @full-percent;
     height: 120px;
 }
 .datepicker_date,.datepicker_number{
@@ -518,7 +520,7 @@ div,ul,ol,span{
 }
 .datepicker_bottom{
     display: block;
-    width: 100%;
+    width: @full-percent;
     height: 25px;
     margin: 10px 0 0 0;
 }

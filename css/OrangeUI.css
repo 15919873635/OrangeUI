@@ -203,6 +203,7 @@ span {
   list-style-type: none;
   white-space: nowrap;
   text-overflow: ellipsis;
+  text-indent: 5px;
   overflow: hidden;
   width: inherit;
   height: 20px;

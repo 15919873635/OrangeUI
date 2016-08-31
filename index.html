@@ -12,8 +12,7 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script type="text/javascript" src="js/base/jquery-1.11.1.min.js"></script>
         <script type="text/javascript" src="js/base/UIBase.js"></script>
-        <script type="text/javascript" src="js/Button.js"></script>
-        <script type="text/javascript" src="js/DatePicker.js"></script>
+        <script type="text/javascript" src="js/ComboBox.js"></script>
     </head>
     <body>
         <!--
@@ -26,7 +25,14 @@ and open the template in the editor.
         -->
         <div id="myDatePicker"></div>
         <script type="text/javascript">
-            $("#myDatePicker").OrangeDatepicker();
+            $("#myDatePicker").OrangeComboBox({
+                width:300,
+                height:25,
+                datas:[
+                    {id:"12345",text:"我的测试"},
+                    {id:"45678",text:"新的测试"}
+                ]
+            });
         </script>
     </body>
 </html>
