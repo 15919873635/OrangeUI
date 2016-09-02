@@ -7,4 +7,61 @@ and open the template in the editor.
     Created on : 2016-8-31, 16:06:43
     Author     : Administrator
 */
+body{
+    margin: 0 auto;
+    padding: 0
+}
+div,ul{
+    margin: 0;
+    padding: 0;
+    font-family: @font-family-songti;
+    font-size: @font-size-12;
+    box-sizing: border-box;
+}
+.table{
+    display: table;
+    width: @full-percent;
+    height: @full-percent;
+    border-collapse: collapse;
+}
+.fixed_layout{
+    table-layout: fixed;
+}
+.tr{
+    display: table-row;
+}
+.td{
+    display: table-cell;
+}
+.vertical_middle{
+    vertical-align: middle;
+}
+.full_width,.grid_center{
+    width: @full-percent;
+}
+.full_height{
+    height: @full-percent;
+}
+.full_area{
+    display: block;
+    width: @full-percent;
+    height: @full-percent;
+    line-height: @full-percent;
+    overflow: auto;
+}
+.text_center{
+    text-align: center;
+}
+.searchbox{
+    border: 1px @bg-color solid;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+.searchbox input{
+    outline: none;
+    width: 100%;
+    height: 100%;
+    border: 1px rgb(169,169,169) solid;
+}
 

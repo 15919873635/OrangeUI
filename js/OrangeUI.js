@@ -1436,8 +1436,7 @@
                 var searchbox = jQ(this),
                     searchbox_default_width = 100,
                     searchbox_default_height = 25,
-                    searchbox_default_align = "left",
-                    searchbox_default_icon = "icon_search",
+                    searchbox_default_align = "right",
                     defaultOptions = initOptions(options),
                     defaultMethods = initMethods(),
                     hasInited = jQ.type(searchbox.data("hasInited")) === "undefined" ? false : searchbox.data("hasInited");

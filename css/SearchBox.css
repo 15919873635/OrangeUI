@@ -7,4 +7,16 @@ and open the template in the editor.
     Created on : 2016-8-31, 16:06:43
     Author     : Administrator
 */
+body {
+  margin: 0 auto;
+  padding: 0;
+}
+div,
+ul {
+  margin: 0;
+  padding: 0;
+}
+div {
+  box-sizing: border-box;
+}
 /*# sourceMappingURL=SearchBox.css.map */
