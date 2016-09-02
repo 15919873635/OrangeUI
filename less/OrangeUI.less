@@ -5,7 +5,7 @@ and open the template in the editor.
 */
 /* 
     Created on : 2016-7-23, 10:56:52
-    Author     : Administrator
+    Author     : lining
 */
 @bg-color:rgb(169,169,169);
 @bg-color2:rgba(190,190,190,1);
@@ -264,42 +264,6 @@ div,ul,ol,span{
 .icon_height{
     height: 16px;
 }
-.icon_window{
-    background: url(../icon/icon_window.png) center no-repeat;
-}
-.icon_user{
-    background: url(../icon/icon_user.png) center no-repeat;
-}
-.icon_password{
-     background: url(../icon/icon_password.png) center no-repeat;
-}
-.icon_add{
-     background: url(../icon/icon_add.png) center no-repeat;
-}
-.icon_remove{
-     background: url(../icon/icon_remove.png) center no-repeat;
-}
-.icon_search{
-     background: url(../icon/icon_search.png) center no-repeat;
-}
-.icon_book{
-     background: url(../icon/icon_book.png) center no-repeat;
-}
-.icon_pc{
-     background: url(../icon/icon_pc.png) center no-repeat;
-}
-.icon_repeat{
-     background: url(../icon/icon_window.png) center no-repeat;
-}
-.icon_file{
-     background: url(../icon/icon_file.png) center no-repeat;
-}
-.icon_log{
-     background: url(../icon/icon_log.png) center no-repeat;
-}
-.icon_edit{
-     background: url(../icon/icon_edit.png) center no-repeat;
-}
 .pager{
     width: inherit;
     height: inherit;
@@ -459,7 +423,6 @@ div,ul,ol,span{
     line-height: @full-percent;
     overflow: hidden;
     white-space: nowrap;
-    text-overflow:hidden;
 }
 .width_20px{
     width: 20px;
@@ -518,6 +481,15 @@ div,ul,ol,span{
 .currentmonth{
     color:rgb(0,0,0);
 }
+.fontSize_12{
+    font-size:@font-size-12;
+}
+.fontSize_14{
+    font-size:@font-size-14;
+}
+.fontSize_16{
+    font-size:@font-size-16;
+}
 .fontSize_18{
     font-size:@font-size-18;
 }
@@ -535,7 +507,7 @@ div,ul,ol,span{
     width: 40px;
     float: right;
     border-radius: 3px;
-    border: 1px rgb(169,169,169) solid;
+    border: 1px @bg-color solid;
     margin:5px 10px 0 0; 
     font-size: 12px;
     cursor: pointer;
@@ -547,9 +519,59 @@ div,ul,ol,span{
     outline: none;
     width: 100%;
     height: 100%;
-    border: 1px rgb(169,169,169) solid;
+    border: 1px @bg-color solid;
+}
+.tree_parent_node,.tree_child_node{
+    float: right;
+    line-height: 20px;
+    height: auto;
 }
 .hidden_area{
     display: none;
+}
+.icon_window{
+    background: url(../icon/icon_window.png) center no-repeat;
+}
+.icon_user{
+    background: url(../icon/icon_user.png) center no-repeat;
+}
+.icon_password{
+    background: url(../icon/icon_password.png) center no-repeat;
+}
+.icon_add{
+    background: url(../icon/icon_add.png) center no-repeat;
+}
+.icon_remove{
+    background: url(../icon/icon_remove.png) center no-repeat;
+}
+.icon_search{
+    background: url(../icon/icon_search.png) center no-repeat;
+}
+.icon_book{
+    background: url(../icon/icon_book.png) center no-repeat;
+}
+.icon_pc{
+    background: url(../icon/icon_pc.png) center no-repeat;
+}
+.icon_repeat{
+    background: url(../icon/icon_window.png) center no-repeat;
+}
+.icon_file{
+    background: url(../icon/icon_file.png) center no-repeat;
+}
+.icon_log{
+    background: url(../icon/icon_log.png) center no-repeat;
+}
+.icon_edit{
+    background: url(../icon/icon_edit.png) center no-repeat;
+}
+.icon_checked{
+    background: url(../icon/icon-checked.png) center no-repeat;
+}
+.icon_unchecked{
+    background: url(../icon/icon-unchecked.png) center no-repeat;
+}
+.icon_partial{
+    background: url(../icon/icon-partial.png) center no-repeat;
 }
 
