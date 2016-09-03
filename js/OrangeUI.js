@@ -1628,6 +1628,31 @@
                             },
                             getParent:function(nodeId){
                                 return tree.find("#"+nodeId).parent();
+                            },
+                            loadDatas:function(opts){
+                                if(jQ.isPlainObject(opts)){
+                                    opts.success = function(data){
+                                        defaultMethods.setDatas(data);
+                                    };
+                                    jQ.OrangeAjax({
+                                        url:opts.url,
+                                        dataType:opts.dataType,
+                                        data:opts.data,
+                                        success:opts.success
+                                    });
+                                }
+                            },
+                            setDatas:function(datasArray){
+                                if(jQ.isPlainObject(datasArray) && !jQ.isEmptyObject(datasArray)){
+                                    datasArray = [datasArray];
+                                }
+                                if(jQ.isArray(datasArray) && datasArray.length > 0){
+                                    defaultOptions.datas = datasArray;
+                                    tree.empty().append(assemTreeNodeString(0,datasArray));
+                                }
+                            },
+                            getDatas:function(){
+                                return defaultOptions.datas;
                             }
                         };
                         tree.data("defaultMethods",treeMethods);
