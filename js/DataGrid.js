@@ -7,19 +7,19 @@
     function(jQ){
         jQ.fn.extend({
             OrangeGrid:function(options){
-                var orGrid = jQuery(this),
+                var orGrid = jQ(this),
                     grid_default_width = 600,
                     grid_default_height = 300,
                     grid_default_icon = "icon_window",
                     defaultOptions = initOptions(options),
                     defaultMethods = initMethods(),
-                    effectiveCount = jQuery.type(orGrid.data("effectiveCount")) === "undefined" ? 0 : orGrid.data("effectiveCount"),
-                    effectiveColumn = jQuery.type(orGrid.data("effectiveColumn")) === "undefined" ? {} : orGrid.data("effectiveColumn"),
-                    hasInited = jQuery.type(orGrid.data("hasInited")) === "undefined" ? false : orGrid.data("hasInited");
-                if(jQuery.OrangeFitTag(orGrid.get(0).tagName)){
-                    if(jQuery.isPlainObject(options) || jQuery.type(options) === "undefined")
+                    effectiveCount = jQ.type(orGrid.data("effectiveCount")) === "undefined" ? 0 : orGrid.data("effectiveCount"),
+                    effectiveColumn = jQ.type(orGrid.data("effectiveColumn")) === "undefined" ? {} : orGrid.data("effectiveColumn"),
+                    hasInited = jQ.type(orGrid.data("hasInited")) === "undefined" ? false : orGrid.data("hasInited");
+                if(jQ.OrangeFitTag(orGrid.get(0).tagName)){
+                    if(jQ.isPlainObject(options) || jQ.type(options) === "undefined")
                        _initGrid();
-                    if(jQuery.type(options) === "string"){
+                    if(jQ.type(options) === "string"){
                         if(/^set\w+/.test(options)){
                             defaultMethods[options](arguments);
                             _initGrid();
@@ -37,17 +37,17 @@
                     orGrid.data("defaultOptions",defaultOptions);
                 };
                 function doInit(){
-                    if(jQuery.type(orGrid.prop("id")) === "undefined"){
-                        orGrid.prop("id","grid_"+jQuery.OrangeRandom());
+                    if(jQ.type(orGrid.prop("id")) === "undefined"){
+                        orGrid.prop("id","grid_"+jQ.OrangeRandom());
                     };
                     if(!orGrid.hasClass("grid"))
                         orGrid.addClass("grid");
-                    var gridWidth = jQuery.isNumeric(defaultOptions.width) ? defaultOptions.width : grid_default_width,
-                        gridHeight = jQuery.isNumeric(defaultOptions.height) ? defaultOptions.height : grid_default_height,
+                    var gridWidth = jQ.isNumeric(defaultOptions.width) ? defaultOptions.width : grid_default_width,
+                        gridHeight = jQ.isNumeric(defaultOptions.height) ? defaultOptions.height : grid_default_height,
                         titleClass = "",
-                        gridTitle = jQuery.isPlainObject(defaultOptions.title) ? (jQuery.isEmptyObject(defaultOptions.title) ? null : defaultOptions.title) : null,
-                        titleIcon = !jQuery.isEmptyObject(gridTitle) ? (jQuery.type(gridTitle.icon) === "string" ? gridTitle.icon : grid_default_icon) : grid_default_icon,
-                        titleText = !jQuery.isEmptyObject(gridTitle) ? (jQuery.type(gridTitle.text) === "string" ? gridTitle.text : grid_default_text) : grid_default_text;
+                        gridTitle = jQ.isPlainObject(defaultOptions.title) ? (jQ.isEmptyObject(defaultOptions.title) ? null : defaultOptions.title) : null,
+                        titleIcon = !jQ.isEmptyObject(gridTitle) ? (jQ.type(gridTitle.icon) === "string" ? gridTitle.icon : grid_default_icon) : grid_default_icon,
+                        titleText = !jQ.isEmptyObject(gridTitle) ? (jQ.type(gridTitle.text) === "string" ? gridTitle.text : grid_default_text) : grid_default_text;
                     if(gridTitle === null)
                         titleClass = "hidden_area";
                     orGrid.css({"width":gridWidth+"px","height":gridHeight+"px"});
@@ -66,7 +66,7 @@
                 };
                 function initOptions(ops){
                     var orGridOptions = orGrid.data("defaultOptions");
-                    if(jQuery.type(orGridOptions) === "undefined"){
+                    if(jQ.type(orGridOptions) === "undefined"){
                         orGridOptions = {
                             url:"",
                             queryData:{},
@@ -86,26 +86,26 @@
                             }
                         };
                     }
-                    if(jQuery.isPlainObject(ops))
-                        orGridOptions = jQuery.extend(orGridOptions,ops);
+                    if(jQ.isPlainObject(ops))
+                        orGridOptions = jQ.extend(orGridOptions,ops);
                     return orGridOptions;
                 };
                 function initGridHeader(){
-                    var columns = jQuery.isPlainObject(defaultOptions.columns) ? [defaultOptions.columns] : jQuery.isArray(defaultOptions.columns) ? defaultOptions.columns : [];
+                    var columns = jQ.isPlainObject(defaultOptions.columns) ? [defaultOptions.columns] : jQ.isArray(defaultOptions.columns) ? defaultOptions.columns : [];
                     if(columns.length > 0){
                         var totalWidth = 0,
                             reserveCount = 0,
                             totalPercent = 0;
                         for(var index = 0 ; index < columns.length ; index ++){
                             var singData = columns[index];
-                            if(jQuery.isPlainObject(singData)){
-                                if((jQuery.type(singData.name) === "string" && jQuery.trim(singData.name).length > 0 && 
-                                    jQuery.type(singData.fildName) === "string" && jQuery.trim(singData.fildName).length > 0) ||
-                                    (singData.checkbox === true && jQuery.type(singData.checkName) === "string")){
+                            if(jQ.isPlainObject(singData)){
+                                if((jQ.type(singData.name) === "string" && jQ.trim(singData.name).length > 0 && 
+                                    jQ.type(singData.fildName) === "string" && jQ.trim(singData.fildName).length > 0) ||
+                                    (singData.checkbox === true && jQ.type(singData.checkName) === "string")){
                                     effectiveCount += 1;
-                                    if(jQuery.isNumeric(singData.width))
+                                    if(jQ.isNumeric(singData.width))
                                         totalWidth += parseInt(singData.width);
-                                    else if(jQuery.OrangePercentage(singData.width))
+                                    else if(jQ.OrangePercentage(singData.width))
                                         totalPercent += parseInt(singData.width.substring(0,singData.width.length - 1));
                                     else
                                         reserveCount += 1;
@@ -121,11 +121,11 @@
                                         theadTdStr = "";
                                     for(var index = 0 ;index < columns.length ; index ++){
                                         var singData = columns[index];
-                                        if(jQuery.isPlainObject(singData)){
-                                            if((jQuery.type(singData.name) === "string" && jQuery.trim(singData.name).length > 0 &&
-                                                jQuery.type(singData.fildName) === "string" && jQuery.trim(singData.fildName).length > 0) ||
-                                                (singData.checkbox === true && jQuery.type(singData.checkname) === "string")){
-                                                var dataWidth = jQuery.isNumeric(singData.width) ? singData.width : jQuery.OrangePercentage(singData.width) ? parseInt((distWidth / 100) * parseInt(singData.width.substring(0,singData.width.length - 1))) : 0;
+                                        if(jQ.isPlainObject(singData)){
+                                            if((jQ.type(singData.name) === "string" && jQ.trim(singData.name).length > 0 &&
+                                                jQ.type(singData.fildName) === "string" && jQ.trim(singData.fildName).length > 0) ||
+                                                (singData.checkbox === true && jQ.type(singData.checkname) === "string")){
+                                                var dataWidth = jQ.isNumeric(singData.width) ? singData.width : jQ.OrangePercentage(singData.width) ? parseInt((distWidth / 100) * parseInt(singData.width.substring(0,singData.width.length - 1))) : 0;
                                                 if(dataWidth === 0)
                                                     dataWidth = (distWidth - parseInt((distWidth / 100) * totalPercent)) / reserveCount - 5;
                                                 effectiveColumn[singData.fildName] = dataWidth;
@@ -163,22 +163,22 @@
                         orGrid.find(".bottom").parent().addClass("hidden_area");
                 };
                 function initDatas(){
-                    var dataOptions =  jQuery.isPlainObject(defaultOptions.data) ? defaultOptions.data : {};
+                    var dataOptions =  jQ.isPlainObject(defaultOptions.data) ? defaultOptions.data : {};
                     if(defaultOptions.url === ""){
-                        var localData = jQuery.isArray(dataOptions.list) ? dataOptions.list : [];
+                        var localData = jQ.isArray(dataOptions.list) ? dataOptions.list : [];
                         defaultMethods.setDatas(localData);
                     }else{
-                        var remoteUrl = jQuery.type(defaultOptions.url) === "string" ? defaultOptions.url : "";
-                        var remoteQueryData = jQuery.isPlainObject(dataOptions.queryData) ? dataOptions.queryData: {};
+                        var remoteUrl = jQ.type(defaultOptions.url) === "string" ? defaultOptions.url : "";
+                        var remoteQueryData = jQ.isPlainObject(dataOptions.queryData) ? dataOptions.queryData: {};
                         defaultMethods.loadDatas({url:remoteUrl,data:remoteQueryData,dataType:"json"});
                     }
                 };
                 function initMethods(){
                     var orGridMethods = orGrid.data("defaultMethods");
-                    if(jQuery.type(orGridMethods) === "undefined"){
+                    if(jQ.type(orGridMethods) === "undefined"){
                         orGridMethods = {
                             setWidth:function(gridWidth){
-                                gridWidth = jQuery.isPlainObject(gridWidth) ? (jQuery.isNumeric(gridWidth[1]) ? gridWidth[1] : grid_default_width) : grid_default_width;
+                                gridWidth = jQ.isPlainObject(gridWidth) ? (jQ.isNumeric(gridWidth[1]) ? gridWidth[1] : grid_default_width) : grid_default_width;
                                 defaultOptions.width = gridWidth;
                                 orGrid.width(gridWidth);
                             },
@@ -186,7 +186,7 @@
                                 return defaultOptions.width;
                             },
                             setHeight:function(gridHeight){
-                                gridHeight = jQuery.isPlainObject(gridHeight) ? (jQuery.isNumeric(gridHeight[1]) ? gridHeight[1] : grid_default_height) : grid_default_height;
+                                gridHeight = jQ.isPlainObject(gridHeight) ? (jQ.isNumeric(gridHeight[1]) ? gridHeight[1] : grid_default_height) : grid_default_height;
                                 defaultOptions.height = gridHeight;
                                 orGrid.width(gridHeight);
                             },
@@ -194,11 +194,11 @@
                                 return defaultOptions.height;
                             },
                             loadDatas:function(opts){
-                                if(jQuery.isPlainObject(opts)){
+                                if(jQ.isPlainObject(opts)){
                                     opts.success = function(data){
                                         defaultMethods.setDatas(data);
                                     };
-                                    jQuery.OrangeAjax({
+                                    jQ.OrangeAjax({
                                         url:opts.url,
                                         dataType:opts.dataType,
                                         data:opts.data,
@@ -209,14 +209,14 @@
                             setDatas:function(gridDats){
                                 orGrid.find(".tbody").children(".table").empty();
                                 if(effectiveCount > 0){
-                                    if(gridDats && jQuery.isPlainObject(gridDats)){
+                                    if(gridDats && jQ.isPlainObject(gridDats)){
                                         gridDats = [gridDats];
                                     }
-                                    if(jQuery.isArray(gridDats) && gridDats.length > 0 && jQuery.isArray(defaultOptions.columns) && defaultOptions.columns.length > 0){
+                                    if(jQ.isArray(gridDats) && gridDats.length > 0 && jQ.isArray(defaultOptions.columns) && defaultOptions.columns.length > 0){
                                         var tbodyTrStr = "";
                                         for(var index = 0; index < gridDats.length ; index ++){
                                             var gridData = gridDats[index];
-                                            if(jQuery.isPlainObject(gridData)){
+                                            if(jQ.isPlainObject(gridData)){
                                                 tbodyTrStr += "<div class='tr'>";
                                                 for(var fildKey in effectiveColumn){
                                                     var isCheckBox = false;
@@ -231,7 +231,7 @@
                                                         tbodyTrStr += "<div class='td' style='width:"+effectiveColumn[fildKey]+"px;'><input type='checkbox' style='margin:0 auto;folat:left'></div>";
                                                     }else{
                                                         var contentString = gridData[fildKey];
-                                                        if(contentString=== null || jQuery.type(contentString) === "undefined")
+                                                        if(contentString=== null || jQ.type(contentString) === "undefined")
                                                             contentString = "";
                                                         tbodyTrStr += "<div class='td' style='width:"+effectiveColumn[fildKey]+"px'>"+contentString+"</div>";
                                                     }
