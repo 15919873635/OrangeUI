@@ -10,6 +10,7 @@
                 var tree = jQ(this),
                     tree_default_width = 200,
                     tree_default_height = 300,
+                    tree_default_state  = "close",
                     defaultOptions = initOptions(options),
                     defaultMethods = initMethods(),
                     hasInited = jQ.type(tree.data("hasInited")) === "undefined" ? false : tree.data("hasInited");
@@ -36,20 +37,26 @@
                         nodeLevel += 1;
                         var nodeLineWidth = defaultOptions.width - nodeLevel * 20;
                         for(var index = 0 ; index < nodeArray.length ; index ++){
-                            var $thisData = nodeArray[index];
-                            treeNodes += "<div class='table fixed_layout tree_parent_node' style='width: "+nodeLineWidth+"px;'>";
+                            var $thisData = nodeArray[index],
+                                $thisStateClass = "arrow_down",
+                                $thisStateOpen = "";
+                            treeNodes += "<table class='fixed_layout tree_parent_node' style='width: "+nodeLineWidth+"px;'>";
                             if(jQ.type($thisData.id) === "undefined")
                                 $thisData.id = "tree_node_"+jQ.OrangeRandomId();
                             if(jQ.type($thisData.text) === "undefined")
-                                $thisData.id = "";
+                                $thisData.text = "";
+                            if($thisData.state === tree_default_state){
+                                $thisStateClass = "arrow_right";
+                                $thisStateOpen = "hidden_area";
+                            }    
                             if($thisData.children && $thisData.children.length > 0){
-                                treeNodes += "<div class='tr' id='"+$thisData.id+"'><div class='td width_16px'><div class='arrow_down cursor_hander'></div></div><div class='td icon_unchecked width_16px cursor_hander'></div><div class='td full_width hide_text vertical_middle fontSize_16 text_indent' title='"+$thisData.text+"'>"+$thisData.text+"</div></div><div class='tr'><div class='td width_16px'></div><div class='td full_width'>";
+                                treeNodes += "<tr id='"+$thisData.id+"'><td class='width_20px'><div class='"+$thisStateClass+" cursor_hander'></div></td><td class='icon_unchecked width_16px cursor_hander'></td><td class='full_width hide_text vertical_middle fontSize_16 text_indent' title='"+$thisData.text+"'>"+$thisData.text+"</td></tr><tr class='"+$thisStateOpen+"'><td class='width_20px'></td><td class='width_16px'></td><td class='full_width'>";
                                 treeNodes += assemTreeNodeString(nodeLevel,$thisData.children);
-                                treeNodes += "</div></div>";
+                                treeNodes += "</td></tr>";
                             } else{
-                                treeNodes += "<div class='tr' id='"+$thisData.id+"'><div class='td width_16px'></div><div class='td icon_unchecked width_16px cursor_hander'></div><div class='td full_width hide_text vertical_middle fontSize_16 text_indent' title='"+$thisData.text+"'>"+$thisData.text+"</div></div>";
+                                treeNodes += "<tr id='"+$thisData.id+"'><td class='width_20px'></td><td class='icon_unchecked width_16px cursor_hander'></td><td class='full_width hide_text vertical_middle fontSize_16 text_indent' title='"+$thisData.text+"'>"+$thisData.text+"</td></tr>";
                             }
-                            treeNodes += "</div>";
+                            treeNodes += "</table>";
                         } 
                     }
                     return treeNodes;
