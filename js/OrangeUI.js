@@ -1563,11 +1563,11 @@
                                 $thisStateOpen = "hidden_area";
                             }    
                             if($thisData.children && $thisData.children.length > 0){
-                                treeNodes += "<tr id='"+$thisData.id+"'><td class='width_20px'><div class='"+$thisStateClass+" cursor_hander'></div></td><td class='icon_unchecked width_16px cursor_hander'></td><td class='full_width hide_text vertical_middle fontSize_16 text_indent' title='"+$thisData.text+"'>"+$thisData.text+"</td></tr><tr class='"+$thisStateOpen+"'><td class='width_20px'></td><td class='width_16px'></td><td class='full_width'>";
+                                treeNodes += "<tr id='"+$thisData.id+"'><td class='width_14px'><div class='"+$thisStateClass+" cursor_hander'></div></td><td class='icon_unchecked width_16px cursor_hander'></td><td class='full_width hide_text vertical_middle fontSize_16 text_indent_3px' title='"+$thisData.text+"'>"+$thisData.text+"</td></tr><tr class='"+$thisStateOpen+"'><td class='width_14px'></td><td class='width_16px'></td><td class='full_width'>";
                                 treeNodes += assemTreeNodeString(nodeLevel,$thisData.children);
                                 treeNodes += "</td></tr>";
                             } else{
-                                treeNodes += "<tr id='"+$thisData.id+"'><td class='width_20px'></td><td class='icon_unchecked width_16px cursor_hander'></td><td class='full_width hide_text vertical_middle fontSize_16 text_indent' title='"+$thisData.text+"'>"+$thisData.text+"</td></tr>";
+                                treeNodes += "<tr id='"+$thisData.id+"'><td class='width_14px'></td><td class='icon_unchecked width_16px cursor_hander'></td><td class='full_width hide_text vertical_middle fontSize_16 text_indent_3px' title='"+$thisData.text+"'>"+$thisData.text+"</td></tr>";
                             }
                             treeNodes += "</table>";
                         } 

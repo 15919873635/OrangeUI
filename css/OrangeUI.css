@@ -157,6 +157,9 @@ span {
 .text_indent {
   text-indent: 5px;
 }
+.text_indent_3px {
+  text-indent: 3px;
+}
 .hidden_area {
   display: none;
 }
@@ -234,12 +237,11 @@ span {
 }
 .arrow_right {
   left: 4px;
-  margin-bottom: 4px;
   margin-left: 3px;
   border: 5px solid transparent;
   border-left: 5px solid #a9a9a9;
-  width: 0 !important;
-  height: 0px !important;
+  width: 0;
+  height: 0px;
   position: relative;
 }
 .cursor_hander {
@@ -449,8 +451,8 @@ span {
 .width_16px {
   width: 16px;
 }
-.width_4px {
-  width: 4px;
+.width_14px {
+  width: 14px;
 }
 .datepicker {
   display: block;
