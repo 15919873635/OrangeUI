@@ -1556,11 +1556,11 @@
                             if(jQ.type($thisData.text) === "undefined")
                                 $thisData.id = "";
                             if($thisData.children && $thisData.children.length > 0){
-                                treeNodes += "<div class='tr' id='"+$thisData.id+"'><div class='td icon_unchecked width_16px cursor_hander'></div><div class='td full_width hide_text vertical_middle fontSize_16 text_indent' title='"+$thisData.text+"'>"+$thisData.text+"</div></div><div class='tr'><div class='td width_16px'></div><div class='td full_width'>";
+                                treeNodes += "<div class='tr' id='"+$thisData.id+"'><div class='td width_20px'><div class='arrow_down cursor_hander'></div></div><div class='td icon_unchecked width_16px cursor_hander'></div><div class='td full_width hide_text vertical_middle fontSize_16 text_indent' title='"+$thisData.text+"'>"+$thisData.text+"</div></div><div class='tr'><div class='td width_20px'></div><div class='td width_16px'></div><div class='td full_width'>";
                                 treeNodes += assemTreeNodeString(nodeLevel,$thisData.children);
                                 treeNodes += "</div></div>";
                             } else{
-                                treeNodes += "<div class='tr' id='"+$thisData.id+"'><div class='td icon_unchecked width_16px cursor_hander'></div><div class='td full_width hide_text vertical_middle fontSize_16 text_indent' title='"+$thisData.text+"'>"+$thisData.text+"</div></div>";
+                                treeNodes += "<div class='tr' id='"+$thisData.id+"'><div class='td width_20px'></div><div class='td icon_unchecked width_16px cursor_hander'></div><div class='td full_width hide_text vertical_middle fontSize_16 text_indent' title='"+$thisData.text+"'>"+$thisData.text+"</div></div>";
                             }
                             treeNodes += "</div>";
                         } 
@@ -1595,7 +1595,17 @@
                         tree.addClass("tree");
                     tree.empty()
                         .css({"width":defaultOptions.width+"px","height":defaultOptions.height+"px"})
-                        .append(assemTreeNodeString(0,defaultOptions.datas));
+                        .append(assemTreeNodeString(0,defaultOptions.datas))
+                        .on("click",".arrow_down",function(){
+                            var $thisData = jQ(this);
+                            $thisData.parent().parent().siblings().fadeOut("fast","linear");
+                            $thisData.removeClass("arrow_down").addClass("arrow_right");
+                        })
+                        .on("click",".arrow_right",function(){
+                            var $thisData = jQ(this);
+                            $thisData.parent().parent().siblings().fadeIn("fast","linear");
+                            $thisData.removeClass("arrow_right").addClass("arrow_down");
+                        });
                 };
                 function initMethods(){
                     var treeMethods = tree.data("defaultMethods");
