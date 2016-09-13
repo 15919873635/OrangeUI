@@ -10,7 +10,7 @@
                 var tree = jQ(this),
                     tree_default_width = 200,
                     tree_default_height = 300,
-                    tree_default_state  = "close",
+                    tree_default_state = "close",
                     defaultOptions = initOptions(options),
                     defaultMethods = initMethods(),
                     hasInited = jQ.type(tree.data("hasInited")) === "undefined" ? false : tree.data("hasInited");
@@ -50,11 +50,11 @@
                                 $thisStateOpen = "hidden_area";
                             }    
                             if($thisData.children && $thisData.children.length > 0){
-                                treeNodes += "<tr id='"+$thisData.id+"'><td class='width_20px'><div class='"+$thisStateClass+" cursor_hander'></div></td><td class='icon_unchecked width_16px cursor_hander'></td><td class='full_width hide_text vertical_middle fontSize_16 text_indent' title='"+$thisData.text+"'>"+$thisData.text+"</td></tr><tr class='"+$thisStateOpen+"'><td class='width_20px'></td><td class='width_16px'></td><td class='full_width'>";
+                                treeNodes += "<tr id='"+$thisData.id+"'><td class='width_14px'><div class='"+$thisStateClass+" cursor_hander'></div></td><td class='icon_unchecked width_16px cursor_hander'></td><td class='full_width hide_text vertical_middle fontSize_16 text_indent_3px' title='"+$thisData.text+"'>"+$thisData.text+"</td></tr><tr class='"+$thisStateOpen+"'><td class='width_14px'></td><td class='width_16px'></td><td class='full_width'>";
                                 treeNodes += assemTreeNodeString(nodeLevel,$thisData.children);
                                 treeNodes += "</td></tr>";
                             } else{
-                                treeNodes += "<tr id='"+$thisData.id+"'><td class='width_20px'></td><td class='icon_unchecked width_16px cursor_hander'></td><td class='full_width hide_text vertical_middle fontSize_16 text_indent' title='"+$thisData.text+"'>"+$thisData.text+"</td></tr>";
+                                treeNodes += "<tr id='"+$thisData.id+"'><td class='width_14px'></td><td class='icon_unchecked width_16px cursor_hander'></td><td class='full_width hide_text vertical_middle fontSize_16 text_indent_3px' title='"+$thisData.text+"'>"+$thisData.text+"</td></tr>";
                             }
                             treeNodes += "</table>";
                         } 
@@ -89,7 +89,23 @@
                         tree.addClass("tree");
                     tree.empty()
                         .css({"width":defaultOptions.width+"px","height":defaultOptions.height+"px"})
-                        .append(assemTreeNodeString(0,defaultOptions.datas));
+                        .append(assemTreeNodeString(0,defaultOptions.datas))
+                        .on("click",".arrow_down",function(){
+                            var $thisData = jQ(this);
+                            $thisData.parent().parent().siblings().fadeOut("fast","linear");
+                            $thisData.removeClass("arrow_down").addClass("arrow_right");
+                        })
+                        .on("click",".arrow_right",function(){
+                            var $thisData = jQ(this);
+                            $thisData.parent().parent().siblings().fadeIn("fast","linear");
+                            $thisData.removeClass("arrow_right").addClass("arrow_down");
+                        }).on("click",".icon_unchecked",function(){
+                            var $thisData = jQ(this);
+                            $thisData.removeClass("icon_unchecked").addClass("icon_checked");
+                        }).on("click",".icon_checked",function(){
+                            var $thisData = jQ(this);
+                            $thisData.removeClass("icon_checked").addClass("icon_unchecked");
+                        })
                 };
                 function initMethods(){
                     var treeMethods = tree.data("defaultMethods");
@@ -111,17 +127,60 @@
                             getHeight:function(){
                                 return defaultOptions.height;
                             },
+                            changeState:function(nodeId,state){
+                                if(state === "close")
+                                    tree.find("#"+nodeId).fadeOut("fast","linear");
+                                else
+                                    tree.find("#"+nodeId).fadeIn("fast","linear");
+                            },
                             getNode:function(nodeId){
                                 return tree.find("#"+nodeId);
                             },
                             getParent:function(nodeId){
                                 return tree.find("#"+nodeId).parent();
+                            },
+                            checkNode:function(nodeId){
+                                checkNode(nodeId);
+                            },
+                            uncheckNode:function(nodeId){
+                                uncheckNode(nodeId);
+                            },
+                            loadDatas:function(opts){
+                                if(jQ.isPlainObject(opts)){
+                                    opts.success = function(data){
+                                        defaultMethods.setDatas(data);
+                                    };
+                                    jQ.OrangeAjax({
+                                        url:opts.url,
+                                        dataType:opts.dataType,
+                                        data:opts.data,
+                                        success:opts.success
+                                    });
+                                }
+                            },
+                            setDatas:function(datasArray){
+                                if(jQ.isPlainObject(datasArray) && !jQ.isEmptyObject(datasArray)){
+                                    datasArray = [datasArray];
+                                }
+                                if(jQ.isArray(datasArray) && datasArray.length > 0){
+                                    defaultOptions.datas = datasArray;
+                                    tree.empty().append(assemTreeNodeString(0,datasArray));
+                                }
+                            },
+                            getDatas:function(){
+                                return defaultOptions.datas;
                             }
                         };
                         tree.data("defaultMethods",treeMethods);
                     }
                     return treeMethods;
                 }; 
+                function checkNode(nodeId){
+                    
+                };
+                function unCheckNode(nodeId){
+
+                };
             }
         });
     }

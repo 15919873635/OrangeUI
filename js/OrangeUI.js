@@ -1612,7 +1612,13 @@
                             var $thisData = jQ(this);
                             $thisData.parent().parent().siblings().fadeIn("fast","linear");
                             $thisData.removeClass("arrow_right").addClass("arrow_down");
-                        });
+                        }).on("click",".icon_unchecked",function(){
+                            var $thisData = jQ(this);
+                            $thisData.removeClass("icon_unchecked").addClass("icon_checked");
+                        }).on("click",".icon_checked",function(){
+                            var $thisData = jQ(this);
+                            $thisData.removeClass("icon_checked").addClass("icon_unchecked");
+                        })
                 };
                 function initMethods(){
                     var treeMethods = tree.data("defaultMethods");
@@ -1636,15 +1642,21 @@
                             },
                             changeState:function(nodeId,state){
                                 if(state === "close")
-                                    tree.find("#"+nodeId).fadeOut();
+                                    tree.find("#"+nodeId).fadeOut("fast","linear");
                                 else
-                                    tree.find("#"+nodeId).fadeIn();
+                                    tree.find("#"+nodeId).fadeIn("fast","linear");
                             },
                             getNode:function(nodeId){
                                 return tree.find("#"+nodeId);
                             },
                             getParent:function(nodeId){
                                 return tree.find("#"+nodeId).parent();
+                            },
+                            checkNode:function(nodeId){
+                                checkNode(nodeId);
+                            },
+                            uncheckNode:function(nodeId){
+                                uncheckNode(nodeId);
                             },
                             loadDatas:function(opts){
                                 if(jQ.isPlainObject(opts)){
@@ -1676,6 +1688,12 @@
                     }
                     return treeMethods;
                 }; 
+                function checkNode(nodeId){
+                    
+                };
+                function unCheckNode(nodeId){
+
+                };
             }
         });
     }

@@ -20,6 +20,10 @@ span {
   font-family: "SimSun";
   font-size: 12px;
   box-sizing: border-box;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 .table {
   display: table;
@@ -493,17 +497,6 @@ span {
 .nextMonth,
 .datepicker_number {
   cursor: pointer;
-}
-.lastMonth,
-.nextMonth,
-.datepicker_number,
-.datepicker_date,
-.datepicker_combo_datecontent,
-.datepicker_top {
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
 }
 .datepicker_number:hover {
   background-color: #bebebe;
