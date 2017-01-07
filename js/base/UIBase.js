@@ -78,13 +78,21 @@
             OrangePercentage:function(value){
                 return jQ.type(value) === "string" ? (/^\d+%$/.test(value) ? true : false) : false;
             },
-            OrangeRegExp:function(type,value){ 
+            OrangeRegExp:function(type,regStr){
+                type = type.toLowerCase();
                 var isMatch = false;
                 switch (type){
                     case "url":
                         var urlRegex = new RegExp('^[a-zA-z]+://(\\w+(-\\w+)*)(\\.(\\w+(-\\w+)*))*(\\?\\S*)?$'); 
-                        isMatch =  urlRegex.test(value);
+                        isMatch =  urlRegex.test(regStr);
                         break;
+                    case "ip4":
+                        var ipRegex = new RegExp('^(25[0-5]|2[0-4]\\d|[0-1]\\d{2}|[1-9]?\\d)\\.(25[0-5]|2[0-4]\\d|[0-1]\\d{2}|[1-9]?\\d)\\.(25[0-5]|2[0-4]\\d|[0-1]\\d{2}|[1-9]?\\d)\\.(25[0-5]|2[0-4]\\d|[0-1]\\d{2}|[1-9]?\\d)$');
+                        isMatch =  ipRegex.test(regStr);
+                        break;
+                    case "email":
+                        var emailRegex = new RegExp('^\\w+((-\\w+)|(\\.\\w+))*\\@[A-Za-z0-9]+((\\.|-)[A-Za-z0-9]+)*\\.[A-Za-z0-9]+$');
+                        isMatch =  emailRegex.test(regStr);
                     default : break;    
                 }  
                 return isMatch;
