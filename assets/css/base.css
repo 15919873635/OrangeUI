@@ -1,0 +1,20 @@
+* {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.ok-cl,
+.ok-bg {
+  background-color: red;
+}
+.cancel-cl,
+.cancel-bg {
+  background-color: rgb(169,169,169);
+}
