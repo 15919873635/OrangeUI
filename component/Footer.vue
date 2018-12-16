@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'RFooter',
+  name: 'Footer',
   props: {
     'height': {type: Number, require: false, default: 50},
     'bgColor': {type: String, require: false, default: 'rgb(255,255,255)'}

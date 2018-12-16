@@ -12,10 +12,10 @@
   </div>
 </template>
 <script>
-import RWindow from './RWindow'
-import RHeader from './RHeader'
-import RFooter from './RFooter'
-import RButton from './RButton'
+import Window from './Window'
+import Header from './Header'
+import Footer from './Footer'
+import Button from './Button'
 
 export default {
   name: 'MainPage',
@@ -30,11 +30,11 @@ export default {
     }
   },
   components: {
-    'window': RWindow,
-    'window-header': RHeader,
-    'window-footer': RFooter,
-    'ok-button': RButton,
-    'cancel-button': RButton
+    'window': Window,
+    'window-header': Header,
+    'window-footer': Footer,
+    'ok-button': Button,
+    'cancel-button': Button
   }
 }
 </script>

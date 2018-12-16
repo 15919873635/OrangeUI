@@ -7,7 +7,7 @@
 </template>
 <script>
 export default {
-  name: 'RWindow',
+  name: 'Window',
   data () {
     return {
       style: {

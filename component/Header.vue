@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import RButton from './RButton'
+import RButton from './Button'
 export default {
-  name: 'RHeader',
+  name: 'Header',
   props: {
     'height': {type: Number, require: false, default: 30},
     'color': {type: String, require: false, default: 'rgb(0,0,0)'},

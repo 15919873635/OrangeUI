@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'RButton',
+  name: 'Button',
   props: {
     'height': {type: Number, require: false, default: 30},
     'width': {type: Number, require: false, default: 50},
