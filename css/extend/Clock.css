@@ -121,7 +121,7 @@ p{
     color: #fff;
     font-size: 22px;
 }
-#minute_time{
+.minute_time{
     border-left:1px solid #fff;
     border-right:1px solid #fff;
 }

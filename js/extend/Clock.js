@@ -55,7 +55,7 @@
                                         "<div class='clock_line minute_line' id='" + clock_id + "_minute_line'></div>"+
                                         "<div class='clock_line second_line' id='" + clock_id + "_second_line'></div>" + 
                                         "<div class='date_info' id='" + clock_id + "_date_info'></div>" + 
-                                        "<div class='time_info'><div class='time' id='" + clock_id + "_hour_time'></div><div class='time' id='" + clock_id + "_minute_time'></div><div class='time' id='" + clock_id + "_second_time'></div></div>";
+                                        "<div class='time_info'><div class='time' id='" + clock_id + "_hour_time'></div><div class='time minute_time' id='" + clock_id + "_minute_time'></div><div class='time' id='" + clock_id + "_second_time'></div></div>";
                     for(var i = 0; i < 60; i++) {
                         initClockString += "<div class='clock-scale' style='transform: rotate(" + (i * 6 - 90) + "deg);'><div class='scale-hidden'></div><div class='scale-show'></div></div>";
                     }                    
