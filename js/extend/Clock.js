@@ -8,8 +8,7 @@
         jQ.fn.extend({
             OrangeClock:function(options){
                 var clock = jQ(this),
-                    clock_default_width = 200,
-                    clock_default_height = 200,
+                    clock_default_width = 400,
                     defaultOptions = initOptions(options),
                     defaultMethods = initMethods(),
                     hasInited = jQ.type(clock.data("hasInited")) === "undefined" ? false : clock.data("hasInited");
@@ -32,6 +31,7 @@
                     if(!hasInited)
                         doInit();
                     clock.data("defaultOptions",defaultOptions);
+                    setInterval(setTime,1000);
                 };   
                 function doInit(){
                     if(jQ.type(clock.prop("id")) === "undefined"){
@@ -39,17 +39,14 @@
                     };
                     if(!clock.hasClass("clock"))
                         clock.addClass("clock");
-                    var clockWidth = jQ.isNumeric(defaultOptions.width) ? defaultOptions.width : clock_default_width,
-                        clockHeight = jQ.isNumeric(defaultOptions.height) ? defaultOptions.height : clock_default_height;
-                    clock.css({"width":clockWidth+"px","height":clockHeight+"px"});
+                    var clockWidth = jQ.isNumeric(defaultOptions.width) ? defaultOptions.width : clock_default_width;
+                    clock.css({"width":clockWidth+"px","height":clockWidth+"px"});
                     clock.empty();
-                    var radius = 160;
-                    var dot_num = 30;
-                    var ahd = dot_num * Math.PI / 180;
+                    var ahd = 30 * Math.PI / 180;
                     var clock_id = clock.prop("id");
-                    var initClockString ="<div class='origin'></div><div class='dot_box'>";
+                    var initClockString ="<div class='origin' style='top: "+ (clockWidth - 20) / 2 +"px; left: " + (clockWidth - 20) / 2 + "px'></div><div class='dot_box'>";
                     for(var index = 0 ; index < 12 ; index ++ ) {
-                        initClockString += "<div class='dot' style='left: " + (180 + Math.sin((ahd * index)) * radius) + "px; top: " + (180 + Math.cos((ahd * index)) * radius) + "px'>6</div>"
+                        initClockString += "<div class='dot' style='left: " + (clock_default_width * (0.45 + Math.sin((ahd * index)) * 0.4)) + "px; top: " + (clock_default_width * (0.45 + Math.cos((ahd * index)) * 0.4)) + "px; line-height: " + clockWidth * 0.1 + "px'>6</div>"
                     }  
                     initClockString += "</div><div class='clock_line hour_line' id='" + clock_id + "_hour_line'></div>" +
                                         "<div class='clock_line minute_line' id='" + clock_id + "_minute_line'></div>"+
@@ -67,14 +64,30 @@
                     var clockOptions = clock.data("defaultOptions");
                     if(jQ.type(clockOptions) === "undefined"){
                         clockOptions = {
-                            width:clock_default_width,
-                            height:clock_default_height
+                            width: clock_default_width
                         };
                     }
                     if(jQ.isPlainObject(ops))
                         clockOptions = jQ.extend(clockOptions,ops);
                     return clockOptions;
                 };
+                function initMethods(){
+                    var clockMethods = clock.data("defaultMethods");
+                    if(jQ.type(clockMethods) === "undefined"){
+                        clockMethods = {
+                            setWidth:function(clockWidth){
+                                clockWidth = jQ.isPlainObject(clockWidth) ? (jQ.isNumeric(clockWidth[1])? clockWidth[1] : clock_default_width) : (jQ.isNumeric(clockWidth) ? clockWidth : clock_default_width);
+                                defaultOptions.width = clockWidth;
+                                button.width(clockWidth);
+                                resizeContent();
+                            },
+                            getWidth:function(){
+                                return defaultOptions.width;
+                            }
+                        };
+                    }
+                    return clockMethods;
+                } 
                 function setTime(){
                     var clock_id = clock.prop("id");
                     var hour_line = jQ("#" + clock_id + "_hour_line"),
@@ -88,13 +101,14 @@
                     //获取年月日时分秒
                     var year = nowdate.getFullYear(),
                         month = nowdate.getMonth() + 1,
-                        day = nowdate.getDate(),
+                        day = nowdate.getDay(),
                         hours = nowdate.getHours(),
                         minutes = nowdate.getMinutes(),
-                        seconds = nowdate.getSeconds();
+                        seconds = nowdate.getSeconds(),
+                        date = nowdate.getDate();
                     var weekday =["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
                     // 获取日期id
-                    date_info.html(year + "年" + month + "月" + day + "日   " + weekday[day]);
+                    date_info.html(year + "年" + month + "月" + date + "日   " + weekday[day]);
                     hour_time.html(hours >= 10 ? hours : "0" + hours);
                     minute_time.html(minutes >=10 ? minutes : "0" + minutes);
                     second_time.html(seconds >=10 ? seconds : "0" + seconds);
