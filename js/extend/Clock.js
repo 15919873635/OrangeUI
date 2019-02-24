@@ -8,7 +8,7 @@
         jQ.fn.extend({
             OrangeClock:function(options){
                 var clock = jQ(this),
-                    clock_default_width = 500,
+                    clock_default_width = 400,
                     defaultOptions = initOptions(options),
                     defaultMethods = initMethods(),
                     hasInited = jQ.type(clock.data("hasInited")) === "undefined" ? false : clock.data("hasInited");
