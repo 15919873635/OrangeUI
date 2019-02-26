@@ -39,18 +39,23 @@
                     if(jQ.type(clock.prop("id")) === "undefined"){
                         clock.prop("id","clock_"+jQ.IfRandomId());
                     };
-                    if(!clock.hasClass("clock"))
-                        clock.addClass("clock");
                     var clockWidth = jQ.isNumeric(defaultOptions.width) ? defaultOptions.width : clock_default_width;
-                    clock.css({"width":clockWidth+"px","height":clockWidth+"px"});
                     clock.empty();
-                    var ahd = 30 * Math.PI / 180;
                     var clock_id = clock.prop("id");
                     var initClockString = "";
                     if(defaultOptions.type === "pointer") {
+                        if(!clock.hasClass("pointer_clock"))
+                            clock.addClass("pointer_clock");
+                        clock.css({"width":clockWidth+"px","height":clockWidth+"px"});    
+                        var ahd = 30 * Math.PI / 180;
                         initClockString += "<div class='origin' style='top: "+ (clockWidth - 20) / 2 +"px; left: " + (clockWidth - 20) / 2 + "px'></div><div class='dot_box'>";
                         for(var index = 0 ; index < 12 ; index ++ ) {
-                            initClockString += "<div class='dot' style='left: " + (clock_default_width * (0.45 + Math.sin((ahd * index)) * 0.4)) + "px; top: " + (clock_default_width * (0.45 + Math.cos((ahd * index)) * 0.4)) + "px; line-height: " + clockWidth * 0.1 + "px'>6</div>"
+                            var pointerVal = 0;
+                            if(index < 6)
+                                pointerVal = 6 - index;
+                            else
+                                pointerVal = 18 - index;
+                            initClockString += "<div class='dot' style='left: " + (clock_default_width * (0.45 + Math.sin((ahd * index)) * 0.4)) + "px; top: " + (clock_default_width * (0.45 + Math.cos((ahd * index)) * 0.4)) + "px; line-height: " + clockWidth * 0.1 + "px'>" + pointerVal + "</div>"
                         }  
                         initClockString += "</div><div class='clock_line hour_line' id='" + clock_id + "_hour_line'></div>" +
                                             "<div class='clock_line minute_line' id='" + clock_id + "_minute_line'></div>"+
@@ -60,8 +65,12 @@
                         for(var i = 0; i < 60; i++) {
                             initClockString += "<div class='clock-scale' style='transform: rotate(" + (i * 6 - 90) + "deg);'><div class='scale-hidden'></div><div class='scale-show'></div></div>";
                         }       
-                    } else if(defaultOptions.type === "numerical") {
-
+                    } else if(defaultOptions.type === "digital") {
+                        if(!clock.hasClass("digital_clock"))
+                            clock.addClass("digital_clock");
+                        
+                        clock.css({"width":clockWidth+"px","height":clockWidth/3+"px"});  
+                        initClockString += "<div id='" + clock_id + "_date'" + clock_default_width / 3 + "px'></div><ul><li id='" + clock_id + "_hours'> </li><li class='digital_point'>:</li><li id='" + clock_id + "_min'></li><li class='digital_point'>:</li><li id='" + clock_id + "_sec'></li></ul>";
                     }             
                     clock.append(initClockString); 
                     hasInited = true;
@@ -129,8 +138,15 @@
                         hour_line.css('transform','rotate(' + hour_rotate + 'deg)');
                         minute_line.css('transform','rotate(' + (minutes * 6 - 90) + 'deg)');
                         second_line.css('transform','rotate(' + (seconds * 6 - 90) + 'deg)');
-                    } else if(defaultOptions.type === "numerical") {
-                        
+                    } else if(defaultOptions.type === "digital") {
+                        var hour = jQ("#" + clock_id + "_hours"),
+                            min = jQ("#" + clock_id + "_min"),
+                            sec = jQ("#" + clock_id + "_sec"),
+                            date = jQ("#" + clock_id + "_date");
+                        date.html(year + "年" + MONTHS[month] + date + "日   " + WEEKS[day],);
+                        hour.html(formatedHours);
+                        min.html(formatedMinutes);
+                        sec.html(formatedSeconds);
                     }
                 }  
             }

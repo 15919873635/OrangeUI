@@ -4,7 +4,7 @@ p{
     font-family: 'Microsoft Yahei' ;
     font-size: 14px;
 }
-.clock {
+.pointer_clock {
     border: 10px solid #8bf2f1;
     margin: 100px auto;
     border-radius: 50%;
@@ -120,4 +120,55 @@ p{
 .minute_time {
     border-left:1px solid #fff;
     border-right:1px solid #fff;
+}
+
+.digital_clock{
+    margin: 0 auto;
+    padding: 30px;
+    border: 1px solid #333;
+    color: #fff;
+}
+.digital_clock #Date{
+    font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
+    font-size: 36px;
+    text-align: center;
+    text-shadow:0 0 5px #00c6ff;
+}
+.digital_clock ul{
+    width: inherit;
+    margin: 0 auto;
+    padding: 0px;
+    list-style: none;
+    text-align: center;
+}
+.digital_clock ul li{
+    display: inline;
+    font-size: 10em;
+    text-align: center;
+    font-family:'BebasNeueRegular', Arial, Helvetica, sans-serif;
+    text-shadow:0 0 5px #00c6ff;
+}
+.digital_point{
+    position: relative;
+    animation: mymove 1s ease infinite;
+    -moz-animation: mymove 1s ease infinite;
+    -webkit-animation: mymove 1s ease infinite;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+@keyframes mymove {
+    0%{opacity:1.0;text-shadow:0 0 20px #00c6ff;}
+	50%{opacity:0;text-shadow:none;}
+	100%{opacity:1.0;text-shadow:0 0 20px #00c6ff;}	
+}
+@-webkit-keyframes mymove {
+	0%{opacity:1.0;text-shadow:0 0 20px #00c6ff;}
+	50%{opacity:0;text-shadow:none;}
+	100%{opacity:1.0;text-shadow:0 0 20px #00c6ff;}	
+}
+
+@-moz-keyframes mymove {
+	0%{opacity:1.0;text-shadow:0 0 20px #00c6ff;}
+	50%{opacity:0;text-shadow:none;}
+	100%{opacity:1.0;text-shadow:0 0 20px #00c6ff;}	
 }
