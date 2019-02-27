@@ -55,7 +55,7 @@
                                 pointerVal = 6 - index;
                             else
                                 pointerVal = 18 - index;
-                            initClockString += "<div class='dot' style='left: " + (clock_default_width * (0.45 + Math.sin((ahd * index)) * 0.4)) + "px; top: " + (clock_default_width * (0.45 + Math.cos((ahd * index)) * 0.4)) + "px; line-height: " + clockWidth * 0.1 + "px'>" + pointerVal + "</div>"
+                            initClockString += "<div class='dot' style='left: " + (clockWidth * (0.45 + Math.sin((ahd * index)) * 0.4)) + "px; top: " + (clockWidth * (0.45 + Math.cos((ahd * index)) * 0.4)) + "px; line-height: " + clockWidth * 0.1 + "px'>" + pointerVal + "</div>"
                         }  
                         initClockString += "</div><div class='clock_line hour_line' id='" + clock_id + "_hour_line'></div>" +
                                             "<div class='clock_line minute_line' id='" + clock_id + "_minute_line'></div>"+
@@ -70,7 +70,7 @@
                             clock.addClass("digital_clock");
                         
                         clock.css({"width":clockWidth+"px","height":clockWidth/3+"px"});  
-                        initClockString += "<div id='" + clock_id + "_date'" + clock_default_width / 3 + "px'></div><ul><li id='" + clock_id + "_hours'> </li><li class='digital_point'>:</li><li id='" + clock_id + "_min'></li><li class='digital_point'>:</li><li id='" + clock_id + "_sec'></li></ul>";
+                        initClockString += "<div id='" + clock_id + "_date'" + clockWidth / 3 + "px'></div><ul><li id='" + clock_id + "_hours'> </li><li class='digital_point'>:</li><li id='" + clock_id + "_min'></li><li class='digital_point'>:</li><li id='" + clock_id + "_sec'></li></ul>";
                     }             
                     clock.append(initClockString); 
                     hasInited = true;
