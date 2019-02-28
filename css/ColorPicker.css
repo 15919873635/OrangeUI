@@ -54,3 +54,31 @@
     right: 13px;
     width: 180px;
 }
+
+.color_picker_bar_block {
+    position: relative;
+    width: 35px;
+    height: 150px;
+    float: left;
+}
+
+.color_picker_color_bar {
+    position: absolute;
+    top: 0;
+    left: 9px;
+    width: 17px;
+    height: inherit;
+    border: 2px rgb(233, 174, 174) solid;
+    background: url(icon/icon_color_bar.png) center center no-repeat;
+}
+
+.color_picker_slider_bar {
+    position: absolute;
+    top: -4px;
+    left: 0;
+    width: 35px;
+    height: 9px;
+    float: left;
+    background: url(icon/icon_color_bar.gif) center center no-repeat;
+    cursor: n-resize;
+}
