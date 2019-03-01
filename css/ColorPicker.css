@@ -69,7 +69,7 @@
     width: 17px;
     height: inherit;
     border: 2px rgb(233, 174, 174) solid;
-    background: url(icon/icon_color_bar.png) center center no-repeat;
+    background: url(../icon/icon_color_bar.png) center center no-repeat;
 }
 
 .color_picker_slider_bar {
@@ -79,6 +79,55 @@
     width: 35px;
     height: 9px;
     float: left;
-    background: url(icon/icon_color_bar.gif) center center no-repeat;
+    background: url(../icon/icon_color_bar.gif) center center no-repeat;
     cursor: n-resize;
+}
+
+.color_picker_value_block {
+    position: relative;
+    width: 140px;
+    height: 150px;
+    float: right;
+}
+
+.color_picker_left {
+    float: left;
+}
+
+.color_picker_right {
+    float: right;
+}
+
+.value_block_width {
+    width: 60px;
+}
+
+.rgb_value_block {
+    margin-top: 9px;
+    border: 2px rgb(233, 174, 174) solid;
+}
+
+.rgb_height {
+    height: 20px;
+    line-height: 20px;
+}
+
+.rgb_font {
+    height: 16px;
+    line-height: 16px;
+    text-indent: 5px;
+    font-size: 14px;
+}
+
+.rgb_input {
+    width: 30px;
+    margin-right: 10px;
+    border: none;
+    outline: none;
+    background-color: rgba(255,255,255,0);
+}
+
+.color_picker_top_color {
+    height: 30px;
+    border: 2px rgb(233, 174, 174) solid;
 }
