@@ -35,6 +35,7 @@
                     };
                     if(!colorPicker.hasClass("color_picker"))
                         colorPicker.addClass("color_picker");
+                    var colorPickerId = colorPicker.prop("id");
                     var initColorPickerString = 
                         "<input type='text' class='color_picker_input'>" + 
                         "<div class='color_picker_block'>" + 
@@ -50,48 +51,48 @@
                         "            <div class='color_picker_left rgb_value_block rgb_height value_block_width'>" + 
                         "                <div class='color_picker_left rgb_font'>R</div>" + 
                         "                <div class='color_picker_right rgb_value_up_down'>" + 
-                        "                    <div class='rgb_value_up_arrow'></div>" + 
-                        "                    <div class='rgb_value_down_arrow'></div>" + 
+                        "                    <div class='rgb_value_up_arrow' id='" + colorPickerId + "_rgb_r_arrow_up'></div>" + 
+                        "                    <div class='rgb_value_down_arrow' id='" + colorPickerId + "_rgb_r_arrow_down'></div>" + 
                         "                </div>" + 
                         "                <input class='color_picker_right rgb_input'/>" + 
                         "            </div>" +
                         "            <div class='color_picker_right rgb_value_block rgb_height value_block_width'>" + 
                         "                <div class='color_picker_left rgb_font'>H</div>" + 
                         "                <div class='color_picker_right rgb_value_up_down'>" + 
-                        "                    <div class='rgb_value_up_arrow'></div>" + 
-                        "                    <div class='rgb_value_down_arrow'></div>" + 
+                        "                    <div class='rgb_value_up_arrow' id='" + colorPickerId + "_hsb_h_arrow_up'></div>" + 
+                        "                    <div class='rgb_value_down_arrow' id='" + colorPickerId + "_hsb_h_arrow_down'></div>" + 
                         "                </div>" + 
                         "                <input class='color_picker_right rgb_input'/>" + 
                         "            </div>" +
                         "            <div class='color_picker_left rgb_value_block rgb_height value_block_width'>" + 
                         "                <div class='color_picker_left rgb_font'>G</div>" + 
                         "                <div class='color_picker_right rgb_value_up_down'>" + 
-                        "                    <div class='rgb_value_up_arrow'></div>" + 
-                        "                    <div class='rgb_value_down_arrow'></div>" + 
+                        "                    <div class='rgb_value_up_arrow' id='" + colorPickerId + "_rgb_g_arrow_up'></div>" + 
+                        "                    <div class='rgb_value_down_arrow' id='" + colorPickerId + "_rgb_g_arrow_down'></div>" + 
                         "                </div>" + 
                         "                <input class='color_picker_right rgb_input'/>" +
                         "            </div>" + 
                         "            <div class='color_picker_right rgb_value_block rgb_height value_block_width'>" +
                         "                <div class='color_picker_left rgb_font'>S</div>" +
                         "                <div class='color_picker_right rgb_value_up_down'>" + 
-                        "                    <div class='rgb_value_up_arrow'></div>" + 
-                        "                    <div class='rgb_value_down_arrow'></div>" + 
+                        "                    <div class='rgb_value_up_arrow' id='" + colorPickerId + "_hsb_s_arrow_up'></div>" + 
+                        "                    <div class='rgb_value_down_arrow' id='" + colorPickerId + "_hsb_s_arrow_down'></div>" + 
                         "                </div>" + 
                         "                <input class='color_picker_right rgb_input'/>" +
                         "            </div>" +
                         "            <div class='color_picker_left rgb_value_block rgb_height value_block_width'>" +
                         "                <div class='color_picker_left rgb_font'>B</div>" +
                         "                <div class='color_picker_right rgb_value_up_down'>" + 
-                        "                    <div class='rgb_value_up_arrow'></div>" + 
-                        "                    <div class='rgb_value_down_arrow'></div>" + 
+                        "                    <div class='rgb_value_up_arrow' id='" + colorPickerId + "_rgb_b_arrow_up'></div>" + 
+                        "                    <div class='rgb_value_down_arrow' id='" + colorPickerId + "_rgb_b_arrow_down'></div>" + 
                         "                </div>" + 
                         "                <input class='color_picker_right rgb_input'/>" +
                         "            </div>" +
                         "            <div class='color_picker_right rgb_value_block rgb_height value_block_width'>" +
                         "                <div class='color_picker_left rgb_font'>B</div>" +
                         "                <div class='color_picker_right rgb_value_up_down'>" + 
-                        "                    <div class='rgb_value_up_arrow'></div>" + 
-                        "                    <div class='rgb_value_down_arrow'></div>" + 
+                        "                    <div class='rgb_value_up_arrow' id='" + colorPickerId + "_hsb_b_arrow_up'></div>" + 
+                        "                    <div class='rgb_value_down_arrow' id='" + colorPickerId + "_hsb_b_arrow_down'></div>" + 
                         "                </div>" + 
                         "                <input class='color_picker_right rgb_input'/>" +
                         "            </div>" +
@@ -106,7 +107,21 @@
                         "</div>"
                     colorPicker.append(initColorPickerString);     
                     hasInited = true; 
-                    colorPicker.data("hasInited",hasInited);   
+                    colorPicker.data("hasInited",hasInited);
+                    $("#" + colorPickerId + " .color_picker_value_block")
+                    .on('click', '#' + colorPickerId + '_rgb_r_arrow_up', function(event) {
+                    }).on('click', '#' + colorPickerId + '_rgb_r_arrow_down', function(event) {
+                    }).on('click', '#' + colorPickerId + '_hsb_h_arrow_up', function(event) {
+                    }).on('click', '#' + colorPickerId + '_hsb_h_arrow_down', function(event) {
+                    }).on('click', '#' + colorPickerId + '_rgb_g_arrow_up', function(event) {
+                    }).on('click', '#' + colorPickerId + '_rgb_g_arrow_down', function(event) {
+                    }).on('click', '#' + colorPickerId + '_hsb_s_arrow_up', function(event) {
+                    }).on('click', '#' + colorPickerId + '_hsb_s_arrow_down', function(event) {
+                    }).on('click', '#' + colorPickerId + '_rgb_b_arrow_up', function(event) {
+                    }).on('click', '#' + colorPickerId + '_rgb_b_arrow_down', function(event) {
+                    }).on('click', '#' + colorPickerId + '_hsb_b_arrow_up', function(event) {
+                    }).on('click', '#' + colorPickerId + '_hsb_b_arrow_down', function(event) {
+                    });
                 }   
                 function initMethods(){
                     var colorPickerMethods = colorPicker.data("defaultMethods");
