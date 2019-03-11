@@ -49,34 +49,66 @@
                         "            <div class='color_picker_top_color color_picker_right value_block_width'></div>" + 
                         "            <div class='color_picker_left rgb_value_block rgb_height value_block_width'>" + 
                         "                <div class='color_picker_left rgb_font'>R</div>" + 
+                        "                <div class='color_picker_right rgb_value_up_down'>" + 
+                        "                    <div class='rgb_value_up_arrow'></div>" + 
+                        "                    <div class='rgb_value_down_arrow'></div>" + 
+                        "                </div>" + 
                         "                <input class='color_picker_right rgb_input'/>" + 
                         "            </div>" +
                         "            <div class='color_picker_right rgb_value_block rgb_height value_block_width'>" + 
                         "                <div class='color_picker_left rgb_font'>H</div>" + 
+                        "                <div class='color_picker_right rgb_value_up_down'>" + 
+                        "                    <div class='rgb_value_up_arrow'></div>" + 
+                        "                    <div class='rgb_value_down_arrow'></div>" + 
+                        "                </div>" + 
                         "                <input class='color_picker_right rgb_input'/>" + 
                         "            </div>" +
                         "            <div class='color_picker_left rgb_value_block rgb_height value_block_width'>" + 
                         "                <div class='color_picker_left rgb_font'>G</div>" + 
+                        "                <div class='color_picker_right rgb_value_up_down'>" + 
+                        "                    <div class='rgb_value_up_arrow'></div>" + 
+                        "                    <div class='rgb_value_down_arrow'></div>" + 
+                        "                </div>" + 
                         "                <input class='color_picker_right rgb_input'/>" +
                         "            </div>" + 
                         "            <div class='color_picker_right rgb_value_block rgb_height value_block_width'>" +
                         "                <div class='color_picker_left rgb_font'>S</div>" +
+                        "                <div class='color_picker_right rgb_value_up_down'>" + 
+                        "                    <div class='rgb_value_up_arrow'></div>" + 
+                        "                    <div class='rgb_value_down_arrow'></div>" + 
+                        "                </div>" + 
                         "                <input class='color_picker_right rgb_input'/>" +
                         "            </div>" +
                         "            <div class='color_picker_left rgb_value_block rgb_height value_block_width'>" +
                         "                <div class='color_picker_left rgb_font'>B</div>" +
+                        "                <div class='color_picker_right rgb_value_up_down'>" + 
+                        "                    <div class='rgb_value_up_arrow'></div>" + 
+                        "                    <div class='rgb_value_down_arrow'></div>" + 
+                        "                </div>" + 
                         "                <input class='color_picker_right rgb_input'/>" +
                         "            </div>" +
                         "            <div class='color_picker_right rgb_value_block rgb_height value_block_width'>" +
                         "                <div class='color_picker_left rgb_font'>B</div>" +
+                        "                <div class='color_picker_right rgb_value_up_down'>" + 
+                        "                    <div class='rgb_value_up_arrow'></div>" + 
+                        "                    <div class='rgb_value_down_arrow'></div>" + 
+                        "                </div>" + 
                         "                <input class='color_picker_right rgb_input'/>" +
                         "            </div>" +
                         "            <div class='color_picker_left rgb_value_block rgb_height value_block_width'>" +
                         "                <div class='color_picker_left rgb_font'>#</div>" +
+                        "                <div class='color_picker_right rgb_value_up_down'>" + 
+                        "                    <div class='rgb_value_up_arrow'></div>" + 
+                        "                    <div class='rgb_value_down_arrow'></div>" + 
+                        "                </div>" + 
                         "                <input class='color_picker_right rgb_input'/>" +
                         "            </div>" +
                         "            <div class='color_picker_right rgb_value_block rgb_height value_block_width'>" +
                         "                <div class='color_picker_left rgb_font'></div>" +
+                        "                <div class='color_picker_right rgb_value_up_down'>" + 
+                        "                    <div class='rgb_value_up_arrow'></div>" + 
+                        "                    <div class='rgb_value_down_arrow'></div>" + 
+                        "                </div>" + 
                         "                <input class='color_picker_right rgb_input'/>" +
                         "            </div>" +
                         "        </div>" +
