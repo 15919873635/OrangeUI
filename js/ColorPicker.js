@@ -97,19 +97,9 @@
                         "            </div>" +
                         "            <div class='color_picker_left rgb_value_block rgb_height value_block_width'>" +
                         "                <div class='color_picker_left rgb_font'>#</div>" +
-                        "                <div class='color_picker_right rgb_value_up_down'>" + 
-                        "                    <div class='rgb_value_up_arrow'></div>" + 
-                        "                    <div class='rgb_value_down_arrow'></div>" + 
-                        "                </div>" + 
-                        "                <input class='color_picker_right rgb_input'/>" +
                         "            </div>" +
                         "            <div class='color_picker_right rgb_value_block rgb_height value_block_width'>" +
-                        "                <div class='color_picker_left rgb_font'></div>" +
-                        "                <div class='color_picker_right rgb_value_up_down'>" + 
-                        "                    <div class='rgb_value_up_arrow'></div>" + 
-                        "                    <div class='rgb_value_down_arrow'></div>" + 
-                        "                </div>" + 
-                        "                <input class='color_picker_right rgb_input'/>" +
+                        "                <div class='color_picker_left rgb_font'></div>" + 
                         "            </div>" +
                         "        </div>" +
                         "    </div>" +

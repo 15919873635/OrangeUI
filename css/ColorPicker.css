@@ -142,12 +142,12 @@
 
 .rgb_value_up_arrow {
     margin-top: 1px;
-    border-bottom:6px solid rgb(255,255,255)
+    border-bottom:6px rgb(0, 5, 10) solid;
 }
 
 .rgb_value_down_arrow {
     margin-top: 3px;
-    border-top:6px solid rgb(255,255,255);
+    border-top:6px rgb(0, 5, 10) solid;
 }
 
 .color_picker_top_color {
