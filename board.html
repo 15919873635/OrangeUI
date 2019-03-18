@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .board {
+            position: relative;
+            width: 250px;
+            min-height: 300px;
+            border: 1px rgb(169,169,169) solid;
+            border-radius: 5px;
+        }
+        .board-header {
+            display: flex;
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            border-top-right-radius: 5px;
+            border-top-left-radius: 5px;
+        }
+        .board-title {
+            flex: 1;
+            float: left;
+            height: inherit;
+            line-height: inherit;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            text-indent: 5px;
+        }
+        .board-add {
+            width: 16px;
+            height: 16px;
+            float: right;
+            margin: 7px 10px 0 0;
+            cursor: pointer;
+            background: url('./icon/icon_add.png') center center no-repeat;
+        }
+        .board-body {
+            width: 100%;
+            padding: 0 5px;
+        }
+        .board-new-block {
+            background-color: #fff;
+            background-position: right 8px center;
+            background-repeat: no-repeat;
+            border: 1px solid #d1d5da;
+            border-radius: 3px;
+            box-shadow: inset 0 1px 2px rgba(27,31,35,.075);
+            color: #24292e;
+            width: 100%;
+            font-size: 16px;
+            line-height: 20px;
+            min-height: 35px;
+            outline: none;
+            padding: 6px 8px;
+            vertical-align: middle;
+            height: 80px;
+            resize: vertical;
+            overflow: hidden;
+        }
+        .board-new-block:focus {
+            margin-top: 10px;
+            border-color: #2188ff;
+            box-shadow: inset 0 1px 2px rgba(27,31,35,.075), 0 0 0 0.2em rgba(3,102,214,.3);
+            outline: none;
+        }
+        .board-button-block {
+            display: flex!important;
+            margin-top: 8px!important;
+        }
+
+        .btn {
+            flex-basis: 0;
+            flex-grow: 1;
+            -moz-appearance: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -webkit-appearance: none;
+            -webkit-user-select: none;
+            appearance: none;
+            background-position: -1px -1px;
+            background-repeat: repeat-x;
+            background-size: 110% 110%;
+            border: 1px solid rgba(27,31,35,.2);
+            border-radius: .25em;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 20px;
+            padding: 6px 12px;
+            position: relative;
+            user-select: none;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+        .btn-primary {
+            background-color: #28a745;
+            background-image: linear-gradient(-180deg,#34d058,#28a745 90%);
+            color: #fff;
+            margin-right: 4px!important;
+        }
+    </style>
+</head>
+<body>
+    <div class="board">
+        <div class="board-header">
+            <div class="board-title"></div>
+            <div class="board-add"></div>
+        </div>
+        <div class="board-body">
+            <textarea class="board-new-block"></textarea>
+            <div class="board-button-block">
+                <button class="btn btn-primary">Add</button>
+                <button class="btn">Cancel</button>
+            </div>
+            <div class="board-note-list"></div>
+        </div>
+    </div>
+</body>
+</html>
