@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+}
+.timeline {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -400px 0 0 -300px;
+    border: 1px red solid;
+}
+.base-line {
+    position: absolute;
+    width: 6px;
+    height: 90%;
+    top: 5%;
+    left: calc(10% - 3px);
+    border-radius: 6px;
+    background-color: rgb(169,169,169);
+}
+.sucess-progress {
+    width: inherit;
+    border-radius: 6px;
+    height: 75%; 
+}
+.notyet-color {
+    background-color: rgb(169,169,169);
+}
+.success-color {
+    background-color: green;
+}
+.dot {
+    position: absolute;
+    left: calc(50% - 10px);
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    z-index: 1000;
+}
+
+.dot-first {
+    top: 0;
+}
+
+.dot-second {
+    top: 25%;
+}
+.dot-third {
+    top: 50%;
+}
+.dot-fourth {
+    top: 75%;
+}
+.dot-fifth {
+    top: 100%;
+}
