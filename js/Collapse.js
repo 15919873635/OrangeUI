@@ -6,7 +6,7 @@
 ;(
     function(jQ){
         jQ.fn.extend({
-            OrangeToolBar:function(options){
+            OrangeCollapse:function(options){
                 
             }
         });
