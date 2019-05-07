@@ -8,5 +8,6 @@ Orange UI-青橙UI库,基于jQuery编写的一套web ui
 4、2019年3月19日 新增TimeLine 时间基线组件  
 5、201年3月20日 新增PictureShear 图片轮播组件  
 6、2019年4月2日 删除toolbar组件并新增Collapse 组件
+7、2019年5月7日 新增日历组件且进入全面优化过程，暂时不会再新增加组件
 
 
